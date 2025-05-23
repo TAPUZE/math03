@@ -6,9 +6,9 @@
     <title>שאלון 35381 - רשימת שיעורים | פלטפורמת למידה במתמטיקה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44SU3AYApZ293QOtcPZFJBDEkkVerc4hrGMDhS2FL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Assistant', sans-serif;
@@ -24,7 +24,7 @@
         .status-icon {
             width: 1.1rem; 
             height: 1.1rem;
-            margin-right: 0.35rem; 
+            margin-left: 0.35rem; /* RTL: margin-left instead of margin-right */
         }
         .status-icon-completed { color: #16a34a; }
         .status-icon-started { color: #f59e0b; }
@@ -154,7 +154,10 @@
                 }
             }
             
+            // קריאה גלובלית ל-renderMathInElement לאחר טעינת ה-DOM
+            // כדי לעבד את כל הנוסחאות שנטענו עם הדף (למשל, בתיאורי השיעורים)
             if (window.renderMathInElement) {
+                 console.log("KaTeX: DOMContentLoaded - rendering document.body");
                 renderMathInElement(document.body, {
                     delimiters: [
                         {left: "$$", right: "$$", display: true},
@@ -164,6 +167,8 @@
                     ],
                     throwOnError: false
                 });
+            } else {
+                console.error("KaTeX: renderMathInElement is not defined on DOMContentLoaded.");
             }
         });
 
@@ -193,8 +198,7 @@
 
             mainContent.innerHTML = `
                 <div class="flex items-start mb-4">
-                    <span class="lesson-number-badge-sm text-lg mr-3">${lessonNumber}</span>
-                    <div class="flex-1">
+                    <span class="lesson-number-badge-sm text-lg ml-3">${lessonNumber}</span> <div class="flex-1">
                         <div class="flex items-center">
                              ${statusIconHTML} <h2 class="text-3xl font-bold text-green-700">${lesson.title}</h2>
                         </div>
@@ -205,16 +209,23 @@
                 </div>
                 <p class="text-gray-700 text-lg leading-relaxed mb-6">${lesson.description}</p>
                 <a href="${lesson.link}" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-md transition duration-150 ease-in-out text-lg shadow-md hover:shadow-lg">
-                    מעבר לשיעור &rarr;
-                </a>
+                    מעבר לשיעור &larr; </a>
             `;
             
-            const visualIconElement = mainContent.querySelector('.subject-visual-icon');
-            if (window.renderMathInElement && visualIconElement) {
-                 renderMathInElement(visualIconElement, {
-                    delimiters: [ {left: "\\[", right: "\\]", display: true} ], 
+            // עיבוד KaTeX עבור האלמנטים שנוספו דינמית
+            if (window.renderMathInElement) {
+                console.log("KaTeX: Rendering dynamically added content in lessonMainContent");
+                renderMathInElement(mainContent, {
+                     delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false},
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ],
                     throwOnError: false
                 });
+            } else {
+                 console.error("KaTeX: renderMathInElement is not defined when trying to render dynamic content.");
             }
         }
         
