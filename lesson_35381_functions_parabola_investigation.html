@@ -3,100 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שם השיעור | פלטפורמת למידה במתמטיקה</title>
+    <title>חקירת פונקציה ריבועית (פרבולה) | שאלון 35381 | פלטפורמת למידה במתמטיקה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUbKyJZo8" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Assistant', sans-serif; /* Changed to Assistant for consistency */
-        }
-        .formula-box {
-            background-color: #E5E7EB; /* bg-gray-200 */
-            padding: 0.75rem; 
-            border-radius: 0.375rem; /* rounded-md */
-            display: inline-block; 
-            font-size: 1.125em; /* text-lg */
-            line-height: 1.5; 
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
-        }
-        .formula-box[dir="ltr"] .katex {
-            text-align: left !important;
-        }
-        #notification-box {
-            transition: opacity 0.5s ease-in-out;
-        }
-        .svg-text {
-            font-family: 'Assistant', sans-serif;
-            font-size: 10px; 
-            fill: #374151; /* gray-700 */
-            text-anchor: middle;
-        }
-         .svg-text.axis-label {
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .svg-text.point-label {
-            font-size: 10px; /* Increased for better readability */
-            fill: #1d4ed8; /* blue-700 */
-        }
-        .svg-text.tick-label {
-            font-size: 9px;
-        }
-        .solution {
-            background-color: #f3f4f6; 
-            border: 1px solid #d1d5db; 
-        }
+        body { font-family: 'Assistant', sans-serif; background-color: #f9fafb; }
+        .formula-box { background-color: #E5E7EB; padding: 0.75rem; border-radius: 0.375rem; display: inline-block; font-size: 1.125em; line-height: 1.5; margin: 0.25rem 0.1rem; vertical-align: middle; }
+        .formula-box-block { background-color: #f3f4f6; padding: 1rem; border-radius: 0.375rem; display: block; font-size: 1.2em; margin: 1rem 0; text-align: center; border: 1px solid #e5e7eb; }
+        .formula-box[dir="ltr"] .katex, .formula-box-block[dir="ltr"] .katex { text-align: left !important; }
+        #notification-box { transition: opacity 0.5s ease-in-out; }
+        .solution { background-color: #f3f4f6; border: 1px solid #d1d5db; } /* Aligning with reference more, but keeping it distinct from .example-box */
         .feedback.bg-green-100 { border: 1px solid #a7f3d0; }
         .feedback.bg-red-100 { border: 1px solid #fecaca; }
-        .feedback.bg-yellow-100 { border: 1px solid #fde68a; }
-        .svg-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff; 
-            border: 1px solid #e5e7eb; 
-            border-radius: 0.375rem; 
-            padding: 0.5rem; 
-            overflow: hidden; 
+        .feedback.bg-yellow-100 { border: 1px solid #fde68a; } /* For quiz results */
+        .katex-display > .katex { text-align: center; }
+        .example-box { /* Kept from original target file for specific example formatting if any */
+            border: 1px solid #DBEAFE; 
+            background-color: #EFF6FF; 
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
         }
-        .svg-container svg {
-            max-width: 100%;
-            height: auto;
-        }
+        .svg-text { font-family: 'Assistant', sans-serif; font-size: 10px; fill: #374151; text-anchor: middle; }
+        .svg-text.axis-label { font-size: 12px; font-weight: 600; }
+        .svg-text.point-label { font-size: 10px; fill: #1d4ed8; }
+        .svg-text.tick-label { font-size: 9px; }
+        .svg-container { display: flex; justify-content: center; align-items: center; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.375rem; padding: 0.5rem; overflow: hidden; }
+        .svg-container svg { max-width: 100%; height: auto; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <div id="notification-box" class="fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl hidden z-50 max-w-sm text-right">
-        הודעה תוצג כאן
-    </div>
+    <div id="notification-box" class="fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl hidden z-50 max-w-sm text-right">הודעה תוצג כאן</div>
 
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
         <header class="mb-8">
             <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-2">
                 <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="math_platform_main_page_he.html" class="hover:underline">דף ראשי</a>
-                        <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="questionnaire_35381_lessons_page_he.html" id="breadcrumb-questionnaire" class="hover:underline">שאלון 35381</a>
-                        <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                    </li>
-                     <li class="flex items-center">
-                        <span id="breadcrumb-main-topic" class="text-gray-700">פונקציות וגרפים</span>
-                        <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                    </li>
-                    <li class="flex items-center">
-                        <span id="breadcrumb-lesson-name" class="text-gray-500">חקירת פונקציה ריבועית (פרבולה)</span>
-                    </li>
+                    <li class="flex items-center"><a href="math_platform_main_page_he.html" class="hover:underline">דף ראשי</a> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></li>
+                    <li class="flex items-center"><a href="" id="breadcrumb-questionnaire" class="hover:underline"></a> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></li>
+                    <li class="flex items-center"><span id="breadcrumb-main-topic" class="text-gray-700"></span> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></li>
+                    <li class="flex items-center"><span id="breadcrumb-lesson-name" class="text-gray-500"></span></li>
                 </ol>
             </nav>
-            <h1 id="lesson-title" class="text-3xl md:text-4xl font-bold text-blue-700">חקירת פונקציה ריבועית (פרבולה)</h1>
+            <h1 id="lesson-title" class="text-3xl md:text-4xl font-bold text-blue-700"></h1>
         </header>
 
         <main class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
@@ -184,9 +137,9 @@
                                     <text x="0"   y="135" class="svg-text tick-label">0</text>
                                     <text x="20"  y="135" class="svg-text tick-label">1</text><line x1="20" y1="118" x2="20" y2="122" stroke="#9ca3af" stroke-width="1"/>
                                     <text x="40"  y="135" class="svg-text tick-label">2</text><line x1="40" y1="118" x2="40" y2="122" stroke="#9ca3af" stroke-width="1"/>
-                                    <text x="-8" y="143" class="svg-text tick-label" text-anchor="end">-1</text><line x1="-2" y1="140" x2="2" y2="140" stroke="#9ca3af" stroke-width="1"/>
+                                    <text x="-8" y="143" class="svg-text tick-label" text-anchor="end">-1</text><line x1="-3" y1="140" x2="3" y2="140" stroke="#9ca3af" stroke-width="1"/>
                                     <text x="-8" y="123" class="svg-text tick-label" text-anchor="end">0</text>
-                                    <text x="-8" y="63"  class="svg-text tick-label" text-anchor="end">3</text><line x1="-2" y1="60"  x2="2" y2="60"  stroke="#9ca3af" stroke-width="1"/>
+                                    <text x="-8" y="63"  class="svg-text tick-label" text-anchor="end">3</text><line x1="-3" y1="60"  x2="3" y2="60"  stroke="#9ca3af" stroke-width="1"/>
                                     <text x="65" y="115" class="svg-text axis-label">x</text><text x="10" y="-20" class="svg-text axis-label">y</text>
                                     <polyline points="-40,60 -20,120 0,140 20,120 40,60" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
                                     <circle cx="0" cy="140" r="2.5" fill="#ef4444"/><text x="0" y="110" class="svg-text point-label" dominant-baseline="middle" text-anchor="middle">קודקוד (0,-1)</text>
@@ -205,7 +158,7 @@
                                     <text x="0"   y="150" class="svg-text tick-label">0</text>
                                     <text x="45"  y="150" class="svg-text tick-label">3</text><line x1="45" y1="133" x2="45" y2="137" stroke="#9ca3af" stroke-width="1"/>
                                     <text x="-8" y="138" class="svg-text tick-label" text-anchor="end">0</text>
-                                    <text x="-8" y="3"   class="svg-text tick-label" text-anchor="end">9</text><line x1="-2" y1="0"   x2="2" y2="0"   stroke="#9ca3af" stroke-width="1"/>
+                                    <text x="-8" y="3"   class="svg-text tick-label" text-anchor="end">9</text><line x1="-3" y1="0"   x2="3" y2="0"   stroke="#9ca3af" stroke-width="1"/>
                                     <text x="65" y="130" class="svg-text axis-label">x</text>
                                     <text x="10" y="-20" class="svg-text axis-label">y</text>
                                     <polyline points="-45,0 -30,75 -15,120 0,135 15,120 30,75 45,0" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
@@ -222,9 +175,9 @@
                                     <text x="0"   y="165" class="svg-text tick-label">0</text>
                                     <text x="30"  y="165" class="svg-text tick-label">2</text><line x1="30" y1="148" x2="30" y2="152" stroke="#9ca3af" stroke-width="1"/>
                                     <text x="-8" y="153" class="svg-text tick-label" text-anchor="end">0</text>
-                                    <text x="-8" y="138" class="svg-text tick-label" text-anchor="end">1</text><line x1="-2" y1="135" x2="2" y2="135" stroke="#9ca3af" stroke-width="1"/>
-                                    <text x="-8" y="78"  class="svg-text tick-label" text-anchor="end">5</text><line x1="-2" y1="75"  x2="2" y2="75"  stroke="#9ca3af" stroke-width="1"/>
-                                    <text x="-8" y="3"   class="svg-text tick-label" text-anchor="end">10</text><line x1="-2" y1="0"   x2="2" y2="0"   stroke="#9ca3af" stroke-width="1"/>
+                                    <text x="-8" y="138" class="svg-text tick-label" text-anchor="end">1</text><line x1="-3" y1="135" x2="3" y2="135" stroke="#9ca3af" stroke-width="1"/>
+                                    <text x="-8" y="78"  class="svg-text tick-label" text-anchor="end">5</text><line x1="-3" y1="75"  x2="3" y2="75"  stroke="#9ca3af" stroke-width="1"/>
+                                    <text x="-8" y="3"   class="svg-text tick-label" text-anchor="end">10</text><line x1="-3" y1="0"   x2="3" y2="0"   stroke="#9ca3af" stroke-width="1"/>
                                     <text x="65" y="145" class="svg-text axis-label">x</text><text x="10" y="-20" class="svg-text axis-label">y</text>
                                     <polyline points="-45,0 -30,75 -15,120 0,135 15,120 30,75 45,0" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
                                     <circle cx="0" cy="135" r="2.5" fill="#ef4444"/>
@@ -235,20 +188,9 @@
                     </div>
 
                     <h3 class="text-xl font-semibold mt-8 mb-2 text-gray-800">דוגמה פתורה: חקירת הפונקציה <span class="formula-box" dir="ltr">\(y = x^2 - 4x + 3\)</span></h3>
-                    <div class="border border-gray-200 rounded-lg p-4 bg-gray-50 space-y-3">
-                        <p><strong>א. מציאת קודקוד הפרבולה:</strong></p>
-                        <p><span class="formula-box" dir="ltr">\(a=1, b=-4, c=3\)</span></p>
-                        <p><span class="formula-box" dir="ltr">\(x_k = -\frac{-4}{2 \cdot 1} = \frac{4}{2} = 2\)</span></p>
-                        <p><span class="formula-box" dir="ltr">\(y_k = (2)^2 - 4(2) + 3 = 4 - 8 + 3 = -1\)</span></p>
-                        <p>קודקוד הפרבולה: <span class="formula-box" dir="ltr">\((2, -1)\)</span>. זוהי נקודת מינימום כי <span class="formula-box" dir="ltr">\(a=1 > 0\)</span>.</p>
-                        <p>ציר הסימטריה: <span class="formula-box" dir="ltr">\(x=2\)</span>.</p>
-
-                        <p><strong>ב. נקודות חיתוך עם הצירים:</strong></p>
-                        <p>חיתוך עם ציר Y (<span class="formula-box" dir="ltr">\(x=0\)</span>): <span class="formula-box" dir="ltr">\(y = 0^2 - 4(0) + 3 = 3\)</span>. נקודה: <span class="formula-box" dir="ltr">\((0,3)\)</span>.</p>
-                        <p>חיתוך עם ציר X (<span class="formula-box" dir="ltr">\(y=0\)</span>): <span class="formula-box" dir="ltr">\(x^2 - 4x + 3 = 0\)</span>.</p>
-                        <p>נפתור בעזרת פירוק לגורמים (או נוסחת שורשים): <span class="formula-box" dir="ltr">\((x-1)(x-3)=0\)</span>.</p>
-                        <p>הפתרונות הם <span class="formula-box" dir="ltr">\(x_1=1, x_2=3\)</span>. נקודות חיתוך: <span class="formula-box" dir="ltr">\((1,0), (3,0)\)</span>.</p>
-                        
+                    <div class="example-box space-y-3">
+                        <p><strong>א. מציאת קודקוד הפרבולה:</strong> <span class="formula-box" dir="ltr">\(a=1, b=-4, c=3\)</span>. <span class="formula-box" dir="ltr">\(x_k = -\frac{-4}{2 \cdot 1} = 2\)</span>. <span class="formula-box" dir="ltr">\(y_k = (2)^2 - 4(2) + 3 = -1\)</span>. קודקוד: <span class="formula-box" dir="ltr">\((2, -1)\)</span> (מינימום).</p>
+                        <p><strong>ב. נקודות חיתוך עם הצירים:</strong> ציר Y: <span class="formula-box" dir="ltr">\((0,3)\)</span>. ציר X: <span class="formula-box" dir="ltr">\(x^2 - 4x + 3 = 0 \Rightarrow (x-1)(x-3)=0\)</span>. נקודות: <span class="formula-box" dir="ltr">\((1,0), (3,0)\)</span>.</p>
                         <p><strong>ג. שרטוט סקיצה של הפרבולה:</strong></p>
                         <div class="my-4 p-2 svg-container">
                              <svg id="parabola-example-specific" width="350" height="320" viewBox="-60 -40 220 350" preserveAspectRatio="xMidYMid meet">
@@ -270,16 +212,8 @@
                                 <circle cx="90" cy="250" r="2.5" fill="#ef4444"/><text x="90" y="235" class="svg-text point-label">(3,0)</text>
                             </svg>
                         </div>
-
-                        <p><strong>ד. תחומי עלייה וירידה:</strong></p>
-                        <p>הפרבולה "צוחקת" (<span class="formula-box" dir="ltr">\(a>0\)</span>) וקודקודה ב-<span class="formula-box" dir="ltr">\((2,-1)\)</span>.</p>
-                        <p>תחום ירידה: <span class="formula-box" dir="ltr">\(x < 2\)</span>.</p>
-                        <p>תחום עלייה: <span class="formula-box" dir="ltr">\(x > 2\)</span>.</p>
-
-                        <p><strong>ה. תחומי חיוביות ושליליות:</strong></p>
-                        <p>הפרבולה חותכת את ציר X בנקודות <span class="formula-box" dir="ltr">\((1,0)\)</span> ו-<span class="formula-box" dir="ltr">\((3,0)\)</span>.</p>
-                        <p>תחום חיוביות (הפרבולה מעל ציר X): <span class="formula-box" dir="ltr">\(x < 1\)</span> או <span class="formula-box" dir="ltr">\(x > 3\)</span>.</p>
-                        <p>תחום שליליות (הפרבולה מתחת לציר X): <span class="formula-box" dir="ltr">\(1 < x < 3\)</span>.</p>
+                        <p><strong>ד. תחומי עלייה וירידה:</strong> ירידה: <span class="formula-box" dir="ltr">\(x < 2\)</span>. עלייה: <span class="formula-box" dir="ltr">\(x > 2\)</span>.</p>
+                        <p><strong>ה. תחומי חיוביות ושליליות:</strong> חיוביות: <span class="formula-box" dir="ltr">\(x < 1\)</span> או <span class="formula-box" dir="ltr">\(x > 3\)</span>. שליליות: <span class="formula-box" dir="ltr">\(1 < x < 3\)</span>.</p>
                     </div>
                 </div>
             </section>
@@ -297,7 +231,7 @@
                             <button onclick="showSolution('sol1')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out ml-2">הצג פתרון</button>
                         </div>
                         <div id="feedback-ex1" class="feedback hidden mt-3 p-3 rounded-md text-sm"></div>
-                        <div id="sol1" class="solution hidden mt-3 p-3 border-t border-gray-200 bg-white rounded-md">
+                        <div id="sol1" class="solution hidden mt-3 p-3 border-t border-gray-200 rounded-md">
                             <p><strong>פתרון מלא:</strong></p>
                             <p>בפונקציה <span class="formula-box" dir="ltr">\(y = -x^2 + 6x - 5\)</span>, המקדמים הם: <span class="formula-box" dir="ltr">\(a=-1, b=6, c=-5\)</span>.</p>
                             <p>שיעור ה-X של הקודקוד: <span class="formula-box" dir="ltr">\(x_k = -\frac{b}{2a} = -\frac{6}{2 \cdot (-1)} = -\frac{6}{-2} = 3\)</span>.</p>
@@ -332,44 +266,29 @@
                 <div id="quiz-results" class="hidden mt-3 p-3 rounded-md text-sm"></div>
             </section>
 
-            <section id="progress" aria-labelledby="progress-heading" class="text-center mt-12 py-8">
-                 <button id="mark-completed" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-150 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+            <section id="progressSection" class="text-center p-6 bg-white rounded-lg shadow-md mt-10">
+                <button id="markCompletedBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-150 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                     סמן שיעור כהושלם ✅
                 </button>
+                <p id="completionStatus" class="mt-3 text-sm text-gray-600 min-h-[20px]"></p>
+                <div id="postCompletionButtons" class="mt-4 space-x-0 md:space-x-4 space-y-3 md:space-y-0 rtl:space-x-reverse hidden">
+                    <button id="nextLessonBtn" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition">השיעור הבא &rarr;</button>
+                    <button id="returnToMenuBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition">חזור לרשימת השיעורים</button>
+                </div>
             </section>
         </main>
 
-        <footer class="text-center text-gray-600 mt-12 py-4 border-t border-gray-300">
+        <footer class="text-center text-gray-600 mt-12 py-4 border-t border-gray-300 no-print">
             <p>&copy; <span id="current-year"></span> פלטפורמת למידה במתמטיקה. כל הזכויות שמורות.</p>
         </footer>
     </div>
 
     <script>
-        const LESSON_ID = '35381_functions_parabola_investigation'; 
-        const LESSON_TITLE = 'חקירת פונקציה ריבועית (פרבולה)';
-        const BREADCRUMB_QUESTIONNAIRE_TEXT = 'שאלון 35381';
-        const BREADCRUMB_QUESTIONNAIRE_LINK = 'questionnaire_35381_lessons_page_he.html';
-        const BREADCRUMB_MAIN_TOPIC_TEXT = 'פונקציות וגרפים';
-        const QUIZ_ANSWERS = { q1: 'min', q2: 'b' };
-        // const TOTAL_QUIZ_QUESTIONS = 2; // Calculated dynamically now
-
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}, {left: "\\(", right: "\\)", display: false}, {left: "\\[", right: "\\]", display: true} ],
-                throwOnError: false,
-            });
-            document.getElementById('lesson-title').textContent = LESSON_TITLE;
-            document.title = LESSON_TITLE + " | פלטפורמת למידה במתמטיקה";
-            
-            const breadcrumbQ = document.getElementById('breadcrumb-questionnaire');
-            breadcrumbQ.textContent = BREADCRUMB_QUESTIONNAIRE_TEXT;
-            breadcrumbQ.href = BREADCRUMB_QUESTIONNAIRE_LINK;
-            
-            document.getElementById('breadcrumb-main-topic').textContent = BREADCRUMB_MAIN_TOPIC_TEXT;
-            document.getElementById('breadcrumb-lesson-name').textContent = LESSON_TITLE;
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            checkLessonStatus();
-        });
+        const LESSON_ID = '35381_functions_parabola_investigation';
+        const LESSON_TITLE_FOR_NOTIFICATION = 'חקירת פונקציה ריבועית (פרבולה)';
+        const QUESTIONNAIRE_PAGE_URL = 'questionnaire_35381_lessons_page_he.html';
+        const NEXT_LESSON_URL = 'lesson_35381_sequences_arithmetic_sum.html';
+        const QUIZ_ANSWERS = { q1: 'min', q2: 'b' }; // Moved here
 
         function showNotification(message, type = 'info', duration = 3000) {
             const notificationBox = document.getElementById('notification-box');
@@ -378,7 +297,7 @@
             notificationBox.className = 'fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl z-50 max-w-sm text-right'; 
             if (type === 'success') notificationBox.classList.add('bg-green-500');
             else if (type === 'error') notificationBox.classList.add('bg-red-500');
-            else notificationBox.classList.add('bg-blue-500');
+            else notificationBox.classList.add('bg-blue-500'); // Kept blue from original target
             notificationBox.classList.remove('hidden');
             notificationBox.style.opacity = 1;
             setTimeout(() => {
@@ -387,7 +306,95 @@
             }, duration);
         }
 
-        function checkAnswer(exerciseId, correctAnswer, isTuple = false) {
+        function markLessonAsCompleted() { // From reference
+            const lessonId = LESSON_ID;
+            try {
+                localStorage.setItem(`lesson_completed_${lessonId}`, 'true');
+                const statusEl = document.getElementById('completionStatus');
+                const buttonEl = document.getElementById('markCompletedBtn');
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                const nextLessonBtn = document.getElementById('nextLessonBtn');
+                const returnToMenuBtn = document.getElementById('returnToMenuBtn');
+
+                if (statusEl) {
+                    statusEl.textContent = 'השיעור סומן כהושלם!';
+                    statusEl.className = 'mt-3 text-sm text-green-600 font-semibold';
+                }
+                if (buttonEl) {
+                    buttonEl.disabled = true;
+                    buttonEl.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                    buttonEl.classList.add('bg-gray-400', 'cursor-not-allowed', 'opacity-75');
+                    buttonEl.innerHTML = 'השיעור הושלם 👍';
+                }
+                if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.remove('hidden');
+                if (nextLessonBtn) {
+                    if (NEXT_LESSON_URL) nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
+                    else {
+                        nextLessonBtn.textContent = 'כל הכבוד! סיימת את החלק הזה.';
+                        nextLessonBtn.disabled = true;
+                        nextLessonBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                        nextLessonBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    }
+                }
+                if (returnToMenuBtn) returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
+                showNotification('השיעור ' + LESSON_TITLE_FOR_NOTIFICATION + ' סומן כהושלם!', 'success');
+            } catch (e) {
+                const statusEl = document.getElementById('completionStatus');
+                if (statusEl) {
+                    statusEl.textContent = 'שגיאה בשמירת ההתקדמות. ודא ש-localStorage מאופשר.';
+                    statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
+                }
+                showNotification('שגיאה בשמירת ההתקדמות.', 'error');
+            }
+        }
+
+        function checkLessonStatus() { // From reference
+            const lessonId = LESSON_ID;
+            try {
+                const isCompleted = localStorage.getItem(`lesson_completed_${lessonId}`);
+                const statusEl = document.getElementById('completionStatus');
+                const buttonEl = document.getElementById('markCompletedBtn');
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                const nextLessonBtn = document.getElementById('nextLessonBtn');
+                const returnToMenuBtn = document.getElementById('returnToMenuBtn');
+
+                if (isCompleted === 'true') {
+                    if (statusEl) {
+                        statusEl.textContent = 'שיעור זה הושלם בעבר.';
+                        statusEl.className = 'mt-3 text-sm text-green-600 font-semibold';
+                    }
+                    if (buttonEl) {
+                        buttonEl.disabled = true;
+                        buttonEl.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                        buttonEl.classList.add('bg-gray-400', 'cursor-not-allowed', 'opacity-75');
+                        buttonEl.innerHTML = 'השיעור הושלם 👍';
+                    }
+                    if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.remove('hidden');
+                    if (nextLessonBtn) {
+                        if (NEXT_LESSON_URL) nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
+                        else {
+                            nextLessonBtn.textContent = 'כל הכבוד! סיימת את החלק הזה.';
+                            nextLessonBtn.disabled = true;
+                            nextLessonBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                            nextLessonBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        }
+                    }
+                    if (returnToMenuBtn) returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
+                } else {
+                    if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.add('hidden');
+                }
+            } catch (e) {
+                const statusEl = document.getElementById('completionStatus');
+                if (statusEl) {
+                    statusEl.textContent = 'שגיאה בטעינת סטטוס השיעור.';
+                    statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
+                }
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.add('hidden');
+            }
+        }
+        
+        function checkAnswer(exerciseId, correctAnswer, isTuple = false) { // Specific to this lesson
             const feedbackEl = document.getElementById(`feedback-${exerciseId}`);
             const userAnswerInput = document.getElementById(`${exerciseId}-answer`);
             let userAnswer = userAnswerInput.value.trim();
@@ -395,25 +402,25 @@
 
             if (userAnswer === correctAnswer) {
                 feedbackEl.textContent = 'נכון מאוד! כל הכבוד! 👍';
-                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700';
+                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700 border border-green-300';
             } else {
                 feedbackEl.textContent = 'תשובה שגויה. נסה שוב או הצג את הפתרון. 🤔';
-                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700';
+                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700 border border-red-300';
             }
             feedbackEl.classList.remove('hidden');
         }
 
-        function showSolution(solutionId) {
+        function showSolution(solutionId) { // Specific to this lesson
             const solutionEl = document.getElementById(solutionId);
             if (solutionEl) {
                 solutionEl.classList.toggle('hidden');
                 if (!solutionEl.classList.contains('hidden') && window.renderMathInElement) {
-                     renderMathInElement(solutionEl); // Re-render KaTeX if solution contains math and is shown
+                     renderMathInElement(solutionEl); 
                 }
             }
         }
         
-        const quizSubmitButton = document.getElementById('submit-quiz');
+        const quizSubmitButton = document.getElementById('submit-quiz'); // Specific to this lesson
         if (quizSubmitButton) {
             quizSubmitButton.addEventListener('click', function() {
                 let score = 0;
@@ -429,9 +436,9 @@
                 
                 const resultsEl = document.getElementById('quiz-results');
                 resultsEl.textContent = `הציון שלך הוא: ${score} מתוך ${totalQuestions}.`;
-                if (score === totalQuestions) resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700';
-                else if (score > 0) resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-yellow-100 text-yellow-700';
-                else resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700';
+                if (score === totalQuestions) resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700 border border-green-300';
+                else if (score > 0) resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-yellow-100 text-yellow-700 border border-yellow-300';
+                else resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700 border border-red-300';
                 resultsEl.classList.remove('hidden');
                 
                 recordQuizScore(score, totalQuestions);
@@ -439,63 +446,41 @@
             });
         }
 
-        const markCompletedButton = document.getElementById('mark-completed');
-        if (markCompletedButton) {
-            markCompletedButton.addEventListener('click', function() {
-                markLessonAsCompleted(); 
-            });
-        }
-
-        function markLessonAsCompleted() {
-            if (!LESSON_ID) {
-                showNotification("שגיאה: לא ניתן היה לזהות את השיעור.", "error");
-                return;
-            }
-            try {
-                localStorage.setItem(`lesson_completed_${LESSON_ID}`, 'true');
-                showNotification('השיעור סומן כהושלם!', 'success');
-                if(markCompletedButton) {
-                    markCompletedButton.textContent = 'השיעור הושלם 👍';
-                    markCompletedButton.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-                    markCompletedButton.classList.add('bg-green-600', 'cursor-not-allowed');
-                    markCompletedButton.disabled = true;
-                }
-            } catch (e) { showNotification("שגיאה בשמירת ההתקדמות.", "error"); }
-        }
-
-        function recordQuizScore(score, totalQuestions) {
+        function recordQuizScore(score, totalQuestions) { // Specific to this lesson, uses global LESSON_ID
             if (!LESSON_ID) return;
             try { localStorage.setItem(`lesson_quiz_score_${LESSON_ID}`, JSON.stringify({score, total: totalQuestions, date: new Date().toISOString()}));
             } catch (e) { console.error("Error saving quiz score to localStorage:", e); }
         }
-
-        function checkLessonStatus() {
-            if (!LESSON_ID) return;
-            try {
-                const isCompleted = localStorage.getItem(`lesson_completed_${LESSON_ID}`);
-                if (isCompleted === 'true' && markCompletedButton) {
-                    markCompletedButton.textContent = 'השיעור הושלם 👍';
-                    markCompletedButton.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-                    markCompletedButton.classList.add('bg-green-600', 'cursor-not-allowed');
-                    markCompletedButton.disabled = true;
-                }
-            } catch (e) { console.error("Error accessing localStorage:", e); }
-        }
-         // Function to render KaTeX in a specific element
-        function renderMathInElement(element, options) {
+        
+        function renderMathInElement(element) { // From reference
             if (window.renderMathInElement && element) {
-                const defaultOptions = {
-                    delimiters: [
-                        {left: "$$", right: "$$", display: true},
-                        {left: "$", right: "$", display: false},
-                        {left: "\\(", right: "\\)", display: false},
-                        {left: "\\[", right: "\\]", display: true}
-                    ],
+                window.renderMathInElement(element, {
+                    delimiters: [ {left: "\(", right: "\)", display: false}, {left: "\[", right: "\]", display: true} ],
                     throwOnError: false
-                };
-                window.renderMathInElement(element, options || defaultOptions);
+                });
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body);
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const markCompletedBtn = document.getElementById('markCompletedBtn');
+            if (markCompletedBtn) markCompletedBtn.addEventListener('click', markLessonAsCompleted);
+            checkLessonStatus();
+
+            document.title = LESSON_TITLE_FOR_NOTIFICATION + " | פונקציות | שאלון 35381 | פלטפורמת למידה במתמטיקה";
+            const lessonTitleElement = document.getElementById('lesson-title');
+            if(lessonTitleElement) lessonTitleElement.innerHTML = LESSON_TITLE_FOR_NOTIFICATION + " <span class='text-2xl md:text-3xl'>📈</span>"; 
+            const breadcrumbQ = document.getElementById('breadcrumb-questionnaire');
+            if(breadcrumbQ) {
+                breadcrumbQ.textContent = 'שאלון 35381'; 
+                breadcrumbQ.href = QUESTIONNAIRE_PAGE_URL;
+            }
+            const breadcrumbMainTopic = document.getElementById('breadcrumb-main-topic');
+            if(breadcrumbMainTopic) breadcrumbMainTopic.textContent = 'פונקציות'; 
+            const breadcrumbLessonName = document.getElementById('breadcrumb-lesson-name');
+            if(breadcrumbLessonName) breadcrumbLessonName.textContent = LESSON_TITLE_FOR_NOTIFICATION;
+        });
     </script>
 </body>
 </html>

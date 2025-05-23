@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>משוואה ממעלה ראשונה עם נעלם אחד | אלגברה | שאלון 35182 | פלטפורמת למידה במתמטיקה</title>
+    <title>מערכת משוואות בשני נעלמים | אלגברה | שאלון 35182 | פלטפורמת למידה במתמטיקה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUbKyJZo8" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Assistant', sans-serif; background-color: #f9fafb; }
         .formula-box { background-color: #E5E7EB; padding: 0.75rem; border-radius: 0.375rem; display: inline-block; font-size: 1.125em; line-height: 1.5; margin: 0.25rem 0.1rem; vertical-align: middle; }
         .formula-box-block { background-color: #f3f4f6; padding: 1rem; border-radius: 0.375rem; display: block; font-size: 1.2em; margin: 1rem 0; text-align: center; border: 1px solid #e5e7eb; }
         .formula-box[dir="ltr"] .katex, .formula-box-block[dir="ltr"] .katex { text-align: left !important; }
         #notification-box { transition: opacity 0.5s ease-in-out; }
-        .solution-box { /* Kept from target for practice, but could align with reference's .solution if needed */
+        .solution { /* For interactive exercise solutions, keeping target's green theme */
              background-color: #F0FDF4; 
              border: 1px solid #A7F3D0; 
              padding: 1rem;
@@ -24,26 +24,14 @@
         }
         .feedback.bg-green-100 { border: 1px solid #a7f3d0; }
         .feedback.bg-red-100 { border: 1px solid #fecaca; }
-        .feedback.bg-yellow-100 { border: 1px solid #fde68a; }
+        .feedback.bg-yellow-100 { border: 1px solid #fde68a; } /* For quiz results */
         .katex-display > .katex { text-align: center; }
-        .example-box { 
+         .example-box { /* From original target file, for consistency within its learn section */
             border: 1px solid #DBEAFE; 
             background-color: #EFF6FF; 
             padding: 1rem;
             border-radius: 0.5rem;
             margin-top: 1rem;
-        }
-        .steps-list { list-style: none; padding-right: 0; counter-reset: step-counter; }
-        .steps-list li {
-            position: relative; padding-right: 2.5rem; margin-bottom: 0.75rem;
-            padding-top: 0.25rem; padding-bottom: 0.25rem;
-        }
-        .steps-list li::before {
-            content: counter(step-counter); counter-increment: step-counter; position: absolute; 
-            right: 0; top: 50%; transform: translateY(-50%);
-            background-color: #3B82F6; color: white; width: 1.75rem; height: 1.75rem;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: bold; font-size: 0.9rem; 
         }
     </style>
 </head>
@@ -67,48 +55,48 @@
         <main class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
 
             <section id="learn" aria-labelledby="learn-heading" class="mb-12">
-                <h2 id="learn-heading" class="text-2xl font-semibold text-blue-600 mb-6 border-b-2 border-blue-200 pb-2">לומדים 📚</h2>
+                <h2 id="learn-heading" class="text-2xl font-semibold text-blue-600 mb-4 border-b-2 border-blue-200 pb-2">לומדים 📚</h2>
                 <div class="space-y-6 text-gray-700 leading-relaxed">
-                    <p>משוואה ממעלה ראשונה עם נעלם אחד היא משוואה שבה הנעלם (בדרך כלל <span dir="ltr">\(x\)</span>) מופיע בחזקה ראשונה בלבד, ולא בחזקות גבוהות יותר או במכנה. המטרה היא למצוא את ערכו של הנעלם שמקיים את השוויון.</p>
-                    <p>הצורה הכללית של משוואה כזו לאחר פישוט יכולה להיות <span class="formula-box" dir="ltr">\(ax = b\)</span>, כאשר <span dir="ltr">\(a\)</span> ו-<span dir="ltr">\(b\)</span> הם מספרים ידועים, ו-<span class="formula-box" dir="ltr">\(a \neq 0\)</span>.</p>
+                    <p>מערכת משוואות ממעלה ראשונה עם שני נעלמים (בדרך כלל <span dir="ltr">\(x\)</span> ו-<span dir="ltr">\(y\)</span>) היא אוסף של שתי משוואות או יותר שצריכות להתקיים בו זמנית. אנו נתמקד במערכת של שתי משוואות.</p>
+                    <p>הצורה הכללית של מערכת כזו היא:</p>
+                    <div class="my-4 text-center">
+                        <span class="formula-box-block" dir="ltr">\(\begin{cases} a_1x + b_1y = c_1 \\ a_2x + b_2y = c_2 \end{cases}\)</span>
+                    </div>
+                    <p>כאשר <span dir="ltr">\(a_1, b_1, c_1, a_2, b_2, c_2\)</span> הם מספרים ידועים. פתרון המערכת הוא זוג סדור <span dir="ltr">\((x,y)\)</span> שמקיים את שתי המשוואות.</p>
                     
-                    <h3 class="text-xl font-semibold mt-6 mb-2">שלבי פתרון:</h3>
-                    <ol class="steps-list">
-                        <li><strong>פתיחת סוגריים:</strong> אם יש סוגריים במשוואה, פותחים אותם באמצעות חוק הפילוג.</li>
-                        <li><strong>כינוס איברים דומים:</strong> מחברים או מחסרים איברים המכילים את הנעלם בנפרד, ואיברים חופשיים (מספרים) בנפרד, בכל אגף של המשוואה.</li>
-                        <li><strong>העברת אגפים:</strong> מעבירים את כל האיברים המכילים את הנעלם לאגף אחד (בדרך כלל שמאל) ואת כל המספרים החופשיים לאגף השני (בדרך כלל ימין). זכרו שכאשר מעבירים איבר מאגף לאגף, סימנו משתנה (מחיבור לחיסור, ולהיפך).</li>
-                        <li><strong>בידוד הנעלם:</strong> לאחר כינוס איברים נוסף, אם יש צורך, מחלקים את שני האגפים במקדם של הנעלם כדי למצוא את ערכו.</li>
+                    <h3 class="text-xl font-semibold mt-6 mb-2">שיטות פתרון:</h3>
+                    <p>ישנן שתי שיטות עיקריות לפתרון מערכות כאלה:</p>
+
+                    <h4 class="text-lg font-semibold mt-4 mb-1">1. שיטת ההצבה</h4>
+                    <ol class="list-decimal list-inside space-y-2 pr-5">
+                        <li>מבודדים את אחד הנעלמים (למשל, <span dir="ltr">\(y\)</span>) באחת המשוואות.</li>
+                        <li>מציבים את הביטוי שקיבלנו עבור הנעלם המבודד במשוואה השנייה.</li>
+                        <li>פותרים את המשוואה שהתקבלה (שהיא כעת משוואה עם נעלם אחד).</li>
+                        <li>מציבים את הפתרון שקיבלנו באחת המשוואות המקוריות (או בביטוי של הנעלם המבודד) כדי למצוא את ערכו של הנעלם השני.</li>
+                    </ol>
+
+                    <h4 class="text-lg font-semibold mt-4 mb-1">2. שיטת השוואת מקדמים (או חיבור/חיסור משוואות)</h4>
+                     <ol class="list-decimal list-inside space-y-2 pr-5">
+                        <li>אם יש צורך, כופלים את אחת המשוואות (או את שתיהן) במספר כך שהמקדם של אחד הנעלמים יהיה שווה בערכו המוחלט אך הפוך בסימנו (או שווה בסימנו) בשתי המשוואות.</li>
+                        <li>מחברים (אם הסימנים הפוכים) או מחסרים (אם הסימנים שווים) את המשוואות זו מזו. כתוצאה מכך, אחד הנעלמים "מתבטל".</li>
+                        <li>פותרים את המשוואה שהתקבלה (עם נעלם אחד).</li>
+                        <li>מציבים את הפתרון שקיבלנו באחת המשוואות המקוריות כדי למצוא את ערכו של הנעלם השני.</li>
                     </ol>
 
                     <div class="example-box">
-                        <h4 class="text-lg font-semibold mb-1">דוגמה פתורה (מתוך חומר הבחינה):</h4>
-                        <p class="font-medium">שאלה: פתור את המשוואה <span class="formula-box" dir="ltr">\(3(x-2)+5=2x-1\)</span>.</p>
-                        <p class="mt-2"><strong>פתרון:</strong></p>
-                        <p>1. פתיחת סוגריים: <span class="formula-box" dir="ltr">\(3x - 3 \cdot 2 + 5 = 2x - 1\)</span></p>
-                        <p><span class="formula-box" dir="ltr">\(3x - 6 + 5 = 2x - 1\)</span></p>
-                        <p>2. כינוס איברים באגף שמאל: <span class="formula-box" dir="ltr">\(3x - 1 = 2x - 1\)</span></p>
-                        <p>3. העברת אגפים (העברת <span dir="ltr">\(2x\)</span> שמאלה והעברת <span dir="ltr">\(-1\)</span> ימינה):</p>
-                        <p><span class="formula-box" dir="ltr">\(3x - 2x = -1 + 1\)</span></p>
-                        <p>4. כינוס איברים ובידוד הנעלם:</p>
-                        <p><span class="formula-box" dir="ltr">\(x = 0\)</span></p>
-                        <p class="mt-2">לכן, פתרון המשוואה הוא <span class="formula-box" dir="ltr">\(x=0\)</span>.</p>
-                    </div>
-
-                    <h3 class="text-xl font-semibold mt-6 mb-2">משוואות עם שברים פשוטים</h3>
-                    <p>כאשר במשוואה יש שברים והנעלם אינו במכנה, ניתן לפתור על ידי מציאת מכנה משותף וכפל כל אברי המשוואה במכנה המשותף כדי "להיפטר" מהמכנים. לאחר מכן, פותרים את המשוואה כרגיל.</p>
-                    <div class="example-box">
-                        <h4 class="text-lg font-semibold mt-4 mb-1">דוגמה:</h4>
-                        <p class="font-medium">שאלה: פתור את המשוואה <span class="formula-box" dir="ltr">\(\frac{x}{2} + \frac{x}{3} = 5\)</span>.</p>
-                        <p class="mt-2"><strong>פתרון:</strong></p>
-                        <p>המכנה המשותף הקטן ביותר של 2 ו-3 הוא 6.</p>
-                        <p>נכפול כל איבר במשוואה ב-6:</p>
-                        <p><span class="formula-box" dir="ltr">\(6 \cdot \frac{x}{2} + 6 \cdot \frac{x}{3} = 6 \cdot 5\)</span></p>
-                        <p><span class="formula-box" dir="ltr">\(3x + 2x = 30\)</span></p>
-                        <p>כינוס איברים:</p>
-                        <p><span class="formula-box" dir="ltr">\(5x = 30\)</span></p>
-                        <p>בידוד הנעלם (נחלק ב-5):</p>
-                        <p><span class="formula-box" dir="ltr">\(x = \frac{30}{5} = 6\)</span></p>
-                        <p class="mt-2">פתרון המשוואה הוא <span class="formula-box" dir="ltr">\(x=6\)</span>.</p>
+                        <h4 class="text-lg font-semibold mt-4 mb-1">דוגמה פתורה (מבוססת על בעיה מילולית מחומר הבחינה):</h4>
+                        <p class="font-medium">שאלה: לגיל יש פי 2 יותר עפרונות מאשר לרון. לשניהם יחד יש 21 עפרונות. כמה עפרונות יש לכל אחד?</p>
+                        <p>נסמן: <span dir="ltr">\(g\)</span> - מספר העפרונות של גיל, <span dir="ltr">\(r\)</span> - מספר העפרונות של רון.</p>
+                        <p>המשוואות המתקבלות הן:</p>
+                        <div class="my-2 text-center">
+                            <span class="formula-box-block" dir="ltr">\(\begin{cases} g = 2r \\ g + r = 21 \end{cases}\)</span>
+                        </div>
+                        <p class="mt-2"><strong>פתרון בשיטת ההצבה:</strong></p>
+                        <p>1. המשוואה הראשונה כבר מציגה את <span dir="ltr">\(g\)</span> מבודד: <span class="formula-box" dir="ltr">\(g = 2r\)</span>.</p>
+                        <p>2. נציב את <span dir="ltr">\(2r\)</span> במקום <span dir="ltr">\(g\)</span> במשוואה השנייה: <span class="formula-box" dir="ltr">\((2r) + r = 21\)</span>.</p>
+                        <p>3. נפתור את המשוואה שהתקבלה: <span class="formula-box" dir="ltr">\(3r = 21 \Rightarrow r = \frac{21}{3} \Rightarrow r = 7\)</span>.</p>
+                        <p>4. נציב <span dir="ltr">\(r=7\)</span> במשוואה הראשונה: <span class="formula-box" dir="ltr">\(g = 2 \cdot 7 \Rightarrow g = 14\)</span>.</p>
+                        <p class="mt-2">לכן, לרון יש 7 עפרונות ולגיל יש 14 עפרונות. הפתרון הוא <span class="formula-box" dir="ltr">\((g,r) = (14,7)\)</span> (או <span class="formula-box" dir="ltr">\((x,y) = (14,7)\)</span> אם היינו מסמנים ב-x ו-y).</p>
                     </div>
                 </div>
             </section>
@@ -117,44 +105,51 @@
                 <h2 id="practice-heading" class="text-2xl font-semibold text-blue-600 mb-4 border-b-2 border-blue-200 pb-2">מתרגלים ✍️</h2>
                 <div class="space-y-8 mt-6"> 
                     <div class="exercise p-4 border border-gray-300 rounded-lg bg-gray-50">
-                        <p class="exercise-question font-medium">תרגיל 1: פתור את המשוואה <span class="formula-box" dir="ltr">\(5x - 8 = 2x + 7\)</span>.</p>
+                        <p class="exercise-question font-medium">תרגיל 1: פתור את מערכת המשוואות הבאה:</p>
+                        <div class="my-2 text-center">
+                            <span class="formula-box-block" dir="ltr">\(\begin{cases} x + y = 10 \\ x - y = 4 \end{cases}\)</span>
+                        </div>
+                        <p>רשום את הפתרון כזוג סדור (x,y), למשל: (7,3).</p>
                         <div class="mt-3">
-                            <input type="text" id="ex1-answer" class="border border-gray-300 p-2 rounded w-full md:w-1/2 focus:ring-blue-500 focus:border-blue-500" placeholder="הכנס פתרון">
+                            <input type="text" id="ex1-answer" class="border border-gray-300 p-2 rounded w-full md:w-1/2 focus:ring-blue-500 focus:border-blue-500" placeholder="הכנס פתרון (x,y)">
                         </div>
                         <div class="mt-3">
-                            <button onclick="checkAnswer('ex1', '5')" class="check-answer-btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">בדוק תשובה</button>
-                            <button onclick="showSolution('sol1')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md ml-2">הצג פתרון</button>
+                            <button onclick="checkAnswerExSys1()" class="check-answer-btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">בדוק תשובה</button>
+                            <button onclick="showSolution('sol1')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out ml-2">הצג פתרון</button>
                         </div>
-                        <div id="feedback-ex1" class="feedback hidden"></div>
-                        <div id="sol1" class="solution hidden solution-box">
-                            <p><strong>פתרון מלא:</strong></p>
-                            <p><span class="formula-box" dir="ltr">\(5x - 8 = 2x + 7\)</span></p>
-                            <p>העברת אגפים: <span class="formula-box" dir="ltr">\(5x - 2x = 7 + 8\)</span></p>
-                            <p>כינוס איברים: <span class="formula-box" dir="ltr">\(3x = 15\)</span></p>
-                            <p>בידוד הנעלם: <span class="formula-box" dir="ltr">\(x = \frac{15}{3} = 5\)</span></p>
-                            <p>הפתרון הוא: <span class="formula-box" dir="ltr">\(x=5\)</span>.</p>
+                        <div id="feedback-ex1" class="feedback hidden mt-3 p-3 rounded-md text-sm"></div>
+                        <div id="sol1" class="solution hidden">
+                            <p><strong>פתרון מלא (בשיטת חיבור משוואות):</strong></p>
+                            <p>נחבר את שתי המשוואות:</p>
+                            <p><span class="formula-box" dir="ltr">\((x+y) + (x-y) = 10 + 4\)</span></p>
+                            <p><span class="formula-box" dir="ltr">\(2x = 14 \Rightarrow x = 7\)</span></p>
+                            <p>נציב <span dir="ltr">\(x=7\)</span> במשוואה הראשונה: <span class="formula-box" dir="ltr">\(7 + y = 10 \Rightarrow y = 3\)</span>.</p>
+                            <p>הפתרון הוא: <span class="formula-box" dir="ltr">\((7,3)\)</span>.</p>
                         </div>
                     </div>
 
                     <div class="exercise p-4 border border-gray-300 rounded-lg bg-gray-50">
-                        <p class="exercise-question font-medium">תרגיל 2: פתור את המשוואה <span class="formula-box" dir="ltr">\(4(x+1) - 2(x-3) = 12\)</span>.</p>
+                         <p class="exercise-question font-medium">תרגיל 2: פתור את מערכת המשוואות הבאה:</p>
+                        <div class="my-2 text-center">
+                            <span class="formula-box-block" dir="ltr">\(\begin{cases} 2x + 3y = 12 \\ x - y = 1 \end{cases}\)</span>
+                        </div>
+                        <p>רשום את הפתרון כזוג סדור (x,y).</p>
                         <div class="mt-3">
-                            <input type="text" id="ex2-answer" class="border border-gray-300 p-2 rounded w-full md:w-1/2 focus:ring-blue-500 focus:border-blue-500" placeholder="הכנס פתרון">
+                            <input type="text" id="ex2-answer" class="border border-gray-300 p-2 rounded w-full md:w-1/2 focus:ring-blue-500 focus:border-blue-500" placeholder="הכנס פתרון (x,y)">
                         </div>
                         <div class="mt-3">
-                            <button onclick="checkAnswer('ex2', '1')" class="check-answer-btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">בדוק תשובה</button>
-                            <button onclick="showSolution('sol2')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md ml-2">הצג פתרון</button>
+                            <button onclick="checkAnswerExSys2()" class="check-answer-btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">בדוק תשובה</button>
+                            <button onclick="showSolution('sol2')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out ml-2">הצג פתרון</button>
                         </div>
-                        <div id="feedback-ex2" class="feedback hidden"></div>
-                        <div id="sol2" class="solution hidden solution-box">
-                            <p><strong>פתרון מלא:</strong></p>
-                            <p><span class="formula-box" dir="ltr">\(4(x+1) - 2(x-3) = 12\)</span></p>
-                            <p>פתיחת סוגריים: <span class="formula-box" dir="ltr">\(4x + 4 - 2x + 6 = 12\)</span></p>
-                            <p>כינוס איברים באגף שמאל: <span class="formula-box" dir="ltr">\(2x + 10 = 12\)</span></p>
-                            <p>העברת אגפים: <span class="formula-box" dir="ltr">\(2x = 12 - 10\)</span></p>
-                            <p><span class="formula-box" dir="ltr">\(2x = 2\)</span></p>
-                            <p>בידוד הנעלם: <span class="formula-box" dir="ltr">\(x = \frac{2}{2} = 1\)</span></p>
-                            <p>הפתרון הוא: <span class="formula-box" dir="ltr">\(x=1\)</span>.</p>
+                        <div id="feedback-ex2" class="feedback hidden mt-3 p-3 rounded-md text-sm"></div>
+                        <div id="sol2" class="solution hidden">
+                            <p><strong>פתרון מלא (בשיטת ההצבה):</strong></p>
+                            <p>מהמשוואה השנייה נבודד את <span dir="ltr">\(x\)</span>: <span class="formula-box" dir="ltr">\(x = y + 1\)</span>.</p>
+                            <p>נציב זאת במשוואה הראשונה: <span class="formula-box" dir="ltr">\(2(y+1) + 3y = 12\)</span>.</p>
+                            <p><span class="formula-box" dir="ltr">\(2y + 2 + 3y = 12\)</span></p>
+                            <p><span class="formula-box" dir="ltr">\(5y + 2 = 12 \Rightarrow 5y = 10 \Rightarrow y = 2\)</span>.</p>
+                            <p>נציב <span dir="ltr">\(y=2\)</span> בביטוי שבודדנו: <span class="formula-box" dir="ltr">\(x = 2 + 1 = 3\)</span>.</p>
+                            <p>הפתרון הוא: <span class="formula-box" dir="ltr">\((3,2)\)</span>.</p>
                         </div>
                     </div>
                 </div>
@@ -164,21 +159,27 @@
                 <h2 id="test-heading" class="text-2xl font-semibold text-blue-600 mb-4 border-b-2 border-blue-200 pb-2">בחן את עצמך 🧐</h2>
                 <div class="space-y-6">
                     <div class="quiz-question p-4 border border-gray-300 rounded-lg bg-gray-50">
-                        <p class="font-medium">שאלה 1: מהו הפתרון של המשוואה <span class="formula-box" dir="ltr">\(7x - 5 = 3x + 11\)</span>?</p>
+                        <p class="font-medium">שאלה 1: מהו ערך <span dir="ltr">\(x\)</span> בפתרון מערכת המשוואות הבאה?</p>
+                        <div class="my-2 text-center">
+                            <span class="formula-box-block" dir="ltr">\(\begin{cases} x + y = 5 \\ x - y = 1 \end{cases}\)</span>
+                        </div>
                         <div class="mt-2 space-y-1">
-                            <label class="flex items-center"><input type="radio" name="q1" value="a" class="ml-2"> <span dir="ltr">\(x=2\)</span></label>
-                            <label class="flex items-center"><input type="radio" name="q1" value="b" class="ml-2"> <span dir="ltr">\(x=3\)</span></label>
-                            <label class="flex items-center"><input type="radio" name="q1" value="c" class="ml-2"> <span dir="ltr">\(x=4\)</span></label>
-                            <label class="flex items-center"><input type="radio" name="q1" value="d" class="ml-2"> <span dir="ltr">\(x=1.6\)</span></label>
+                            <label class="flex items-center"><input type="radio" name="q1" value="a" class="ml-2"> 1</label>
+                            <label class="flex items-center"><input type="radio" name="q1" value="b" class="ml-2"> 2</label>
+                            <label class="flex items-center"><input type="radio" name="q1" value="c" class="ml-2"> 3</label>
+                            <label class="flex items-center"><input type="radio" name="q1" value="d" class="ml-2"> 4</label>
                         </div>
                     </div>
                     <div class="quiz-question p-4 border border-gray-300 rounded-lg bg-gray-50">
-                        <p class="font-medium">שאלה 2: מהו הפתרון של המשוואה <span class="formula-box" dir="ltr">\(\frac{x}{4} - 1 = 2\)</span>?</p>
+                        <p class="font-medium">שאלה 2: מהו ערך <span dir="ltr">\(y\)</span> בפתרון מערכת המשוואות הבאה?</p>
+                         <div class="my-2 text-center">
+                            <span class="formula-box-block" dir="ltr">\(\begin{cases} y = 2x \\ x + y = 9 \end{cases}\)</span>
+                        </div>
                         <div class="mt-2 space-y-1">
-                            <label class="flex items-center"><input type="radio" name="q2" value="a" class="ml-2"> <span dir="ltr">\(x=4\)</span></label>
-                            <label class="flex items-center"><input type="radio" name="q2" value="b" class="ml-2"> <span dir="ltr">\(x=8\)</span></label>
-                            <label class="flex items-center"><input type="radio" name="q2" value="c" class="ml-2"> <span dir="ltr">\(x=12\)</span></label>
-                            <label class="flex items-center"><input type="radio" name="q2" value="d" class="ml-2"> <span dir="ltr">\(x=3/4\)</span></label>
+                            <label class="flex items-center"><input type="radio" name="q2" value="a" class="ml-2"> 2</label>
+                            <label class="flex items-center"><input type="radio" name="q2" value="b" class="ml-2"> 3</label>
+                            <label class="flex items-center"><input type="radio" name="q2" value="c" class="ml-2"> 6</label>
+                            <label class="flex items-center"><input type="radio" name="q2" value="d" class="ml-2"> 9</label>
                         </div>
                     </div>
                     <button id="submit-quiz" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md transition duration-150 ease-in-out">הגש בוחן</button>
@@ -204,10 +205,10 @@
     </div>
 
     <script>
-        const LESSON_ID = '35182_algebra_linear_equation_one_variable';
-        const LESSON_TITLE_FOR_NOTIFICATION = 'משוואה ממעלה ראשונה עם נעלם אחד';
+        const LESSON_ID = '35182_algebra_linear_equations_two_variables';
+        const LESSON_TITLE_FOR_NOTIFICATION = 'מערכת משוואות בשני נעלמים';
         const QUESTIONNAIRE_PAGE_URL = 'questionnaire_35182_lessons_page_he.html';
-        const NEXT_LESSON_URL = 'lesson_35182_algebra_linear_equations_two_variables.html';
+        const NEXT_LESSON_URL = 'lesson_35182_algebra_quadratic_equations.html'; // Next lesson in sequence
 
         function showNotification(message, type = 'info', duration = 3000) {
             const notificationBox = document.getElementById('notification-box');
@@ -216,7 +217,7 @@
             notificationBox.className = 'fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl z-50 max-w-sm text-right'; 
             if (type === 'success') notificationBox.classList.add('bg-green-500');
             else if (type === 'error') notificationBox.classList.add('bg-red-500');
-            else notificationBox.classList.add('bg-blue-500'); // Kept blue from original target file
+            else notificationBox.classList.add('bg-blue-500');
             notificationBox.classList.remove('hidden');
             notificationBox.style.opacity = 1;
             setTimeout(() => {
@@ -225,11 +226,10 @@
             }, duration);
         }
 
-        function markLessonAsCompleted() { // From reference
+        function markLessonAsCompleted() {
             const lessonId = LESSON_ID;
             try {
                 localStorage.setItem(`lesson_completed_${lessonId}`, 'true');
-
                 const statusEl = document.getElementById('completionStatus');
                 const buttonEl = document.getElementById('markCompletedBtn');
                 const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
@@ -246,37 +246,29 @@
                     buttonEl.classList.add('bg-gray-400', 'cursor-not-allowed', 'opacity-75');
                     buttonEl.innerHTML = 'השיעור הושלם 👍';
                 }
-
-                if (postCompletionButtonsDiv) {
-                    postCompletionButtonsDiv.classList.remove('hidden');
-                }
-
+                if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.remove('hidden');
                 if (nextLessonBtn) {
-                    if (NEXT_LESSON_URL) {
-                        nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
-                    } else {
+                    if (NEXT_LESSON_URL) nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
+                    else {
                         nextLessonBtn.textContent = 'כל הכבוד! סיימת את החלק הזה.';
                         nextLessonBtn.disabled = true;
                         nextLessonBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
                         nextLessonBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
                     }
                 }
-                if (returnToMenuBtn) {
-                    returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
-                }
+                if (returnToMenuBtn) returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
                 showNotification('השיעור ' + LESSON_TITLE_FOR_NOTIFICATION + ' סומן כהושלם!', 'success');
-                console.log('Lesson ' + lessonId + ' marked as completed.');
-
             } catch (e) {
-                console.error('Error saving to localStorage:', e);
                 const statusEl = document.getElementById('completionStatus');
-                if (statusEl) statusEl.textContent = 'שגיאה בשמירת ההתקדמות. ודא ש-localStorage מאופשר.';
-                if (statusEl) statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
+                if (statusEl) {
+                    statusEl.textContent = 'שגיאה בשמירת ההתקדמות. ודא ש-localStorage מאופשר.';
+                    statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
+                }
                 showNotification('שגיאה בשמירת ההתקדמות.', 'error');
             }
         }
 
-        function checkLessonStatus() { // From reference
+        function checkLessonStatus() {
             const lessonId = LESSON_ID;
             try {
                 const isCompleted = localStorage.getItem(`lesson_completed_${lessonId}`);
@@ -297,45 +289,41 @@
                         buttonEl.classList.add('bg-gray-400', 'cursor-not-allowed', 'opacity-75');
                         buttonEl.innerHTML = 'השיעור הושלם 👍';
                     }
-                    if (postCompletionButtonsDiv) {
-                        postCompletionButtonsDiv.classList.remove('hidden');
-                    }
-                     if (nextLessonBtn) {
-                        if (NEXT_LESSON_URL) {
-                            nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
-                        } else {
+                    if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.remove('hidden');
+                    if (nextLessonBtn) {
+                        if (NEXT_LESSON_URL) nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
+                        else {
                             nextLessonBtn.textContent = 'כל הכבוד! סיימת את החלק הזה.';
                             nextLessonBtn.disabled = true;
                             nextLessonBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
                             nextLessonBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
                         }
                     }
-                    if (returnToMenuBtn) {
-                        returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
-                    }
+                    if (returnToMenuBtn) returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
                 } else {
-                     if (postCompletionButtonsDiv) {
-                        postCompletionButtonsDiv.classList.add('hidden');
-                    }
+                    if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.add('hidden');
                 }
             } catch (e) {
-                console.error('Error reading from localStorage:', e);
                 const statusEl = document.getElementById('completionStatus');
-                if (statusEl) { 
+                if (statusEl) {
                     statusEl.textContent = 'שגיאה בטעינת סטטוס השיעור.';
                     statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
                 }
-                 const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
-                 if (postCompletionButtonsDiv) {
-                    postCompletionButtonsDiv.classList.add('hidden');
-                }
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.add('hidden');
             }
         }
         
-        function checkAnswer(exerciseId, correctAnswer) {
-            const feedbackEl = document.getElementById(`feedback-${exerciseId}`);
-            const userAnswer = document.getElementById(`${exerciseId}-answer`).value.trim();
-            if (userAnswer === correctAnswer) {
+        function normalizeSystemAnswer(answerString) {
+            return answerString.replace(/[()]/g, '').trim();
+        }
+        
+        function checkAnswerExSys1() {
+            const feedbackEl = document.getElementById('feedback-ex1');
+            const userAnswerRaw = document.getElementById('ex1-answer').value;
+            const correctAnswerNormalized = "7,3";
+            const userAnswerNormalized = normalizeSystemAnswer(userAnswerRaw);
+            if (userAnswerNormalized === correctAnswerNormalized) {
                 feedbackEl.textContent = 'נכון מאוד! כל הכבוד! 👍';
                 feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700 border border-green-300';
             } else {
@@ -345,13 +333,26 @@
             feedbackEl.classList.remove('hidden');
         }
 
+        function checkAnswerExSys2() {
+            const feedbackEl = document.getElementById('feedback-ex2');
+            const userAnswerRaw = document.getElementById('ex2-answer').value;
+            const correctAnswerNormalized = "3,2";
+            const userAnswerNormalized = normalizeSystemAnswer(userAnswerRaw);
+            if (userAnswerNormalized === correctAnswerNormalized) {
+                feedbackEl.textContent = 'נכון מאוד! כל הכבוד! 👍';
+                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700 border border-green-300';
+            } else {
+                feedbackEl.textContent = 'תשובה שגויה. נסה שוב או הצג את הפתרון. 🤔';
+                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700 border border-red-300';
+            }
+            feedbackEl.classList.remove('hidden');
+        }
+        
         function showSolution(solutionId) {
             const solutionEl = document.getElementById(solutionId);
             if (solutionEl) {
-                 solutionEl.classList.toggle('hidden');
-                 if (!solutionEl.classList.contains('hidden')) {
-                    renderMathInElement(solutionEl); 
-                 }
+                solutionEl.classList.toggle('hidden');
+                if (!solutionEl.classList.contains('hidden')) renderMathInElement(solutionEl);
             }
         }
 
@@ -360,34 +361,29 @@
             quizSubmitButton.addEventListener('click', function() {
                 let score = 0;
                 const totalQuestions = 2;
-                const correctAnswers = { q1: 'c', q2: 'c' }; 
-                
+                const correctAnswers = { q1: 'c', q2: 'c' };
                 const q1Answer = document.querySelector('input[name="q1"]:checked');
                 if (q1Answer && q1Answer.value === correctAnswers.q1) score++;
-                
                 const q2Answer = document.querySelector('input[name="q2"]:checked');
                 if (q2Answer && q2Answer.value === correctAnswers.q2) score++;
-                
                 const resultsEl = document.getElementById('quiz-results');
                 resultsEl.innerHTML = `הציון שלך הוא: <strong>${score}</strong> מתוך ${totalQuestions}.`;
                 resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-yellow-100 text-yellow-700 border border-yellow-300';
                 resultsEl.classList.remove('hidden');
-                
-                recordQuizScore(LESSON_ID, score, totalQuestions); 
+                recordQuizScore(LESSON_ID, score, totalQuestions);
                 showNotification(`הבוחן הוגש! ציון: ${score}/${totalQuestions}`, 'info');
             });
         }
-        
+
         function recordQuizScore(lessonId, score, totalQuestions) {
             try {
                 localStorage.setItem(`lesson_quiz_score_${lessonId}`, JSON.stringify({score, totalQuestions, date: new Date().toISOString()}));
             } catch (e) {
-                console.error("Error accessing localStorage for quiz score:", e);
                 showNotification("שגיאה בשמירת ציון הבוחן.", "error");
             }
         }
         
-        function renderMathInElement(element) { // Using reference's renderMathInElement
+        function renderMathInElement(element) { // From reference
             if (window.renderMathInElement && element) {
                 window.renderMathInElement(element, {
                     delimiters: [ {left: "\(", right: "\)", display: false}, {left: "\[", right: "\]", display: true} ],
@@ -397,28 +393,22 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body); 
+            renderMathInElement(document.body);
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
             const markCompletedBtn = document.getElementById('markCompletedBtn');
-            if (markCompletedBtn) {
-                markCompletedBtn.addEventListener('click', markLessonAsCompleted);
-            }
-            
-            checkLessonStatus(); 
+            if (markCompletedBtn) markCompletedBtn.addEventListener('click', markLessonAsCompleted);
+            checkLessonStatus();
 
-            // Dynamic title and breadcrumb setup
             document.title = LESSON_TITLE_FOR_NOTIFICATION + " | אלגברה | שאלון 35182 | פלטפורמת למידה במתמטיקה";
             const lessonTitleElement = document.getElementById('lesson-title');
-            if(lessonTitleElement) lessonTitleElement.innerHTML = LESSON_TITLE_FOR_NOTIFICATION + " <span class='text-2xl md:text-3xl'>📐</span>"; 
-
+            if(lessonTitleElement) lessonTitleElement.innerHTML = LESSON_TITLE_FOR_NOTIFICATION + " <span class='text-2xl md:text-3xl'>🧮</span>"; // Icon for systems of equations
             const breadcrumbQ = document.getElementById('breadcrumb-questionnaire');
             if(breadcrumbQ) {
                 breadcrumbQ.textContent = 'שאלון 35182'; 
                 breadcrumbQ.href = QUESTIONNAIRE_PAGE_URL;
             }
             const breadcrumbMainTopic = document.getElementById('breadcrumb-main-topic');
-             if(breadcrumbMainTopic) breadcrumbMainTopic.textContent = 'אלגברה'; 
+            if(breadcrumbMainTopic) breadcrumbMainTopic.textContent = 'אלגברה'; 
             const breadcrumbLessonName = document.getElementById('breadcrumb-lesson-name');
             if(breadcrumbLessonName) breadcrumbLessonName.textContent = LESSON_TITLE_FOR_NOTIFICATION;
         });

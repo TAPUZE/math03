@@ -3,62 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אי-שוויונות ממעלה ראשונה ושנייה | אלגברה | שאלון 35182</title>
+    <title>אי-שוויונות | אלגברה | שאלון 35182 | פלטפורמת למידה במתמטיקה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUbKyJZo8" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        body { font-family: 'Assistant', sans-serif; background-color: #f9fafb; }
+        .formula-box { background-color: #E5E7EB; padding: 0.75rem; border-radius: 0.375rem; display: inline-block; font-size: 1.125em; line-height: 1.5; margin: 0.25rem 0.1rem; vertical-align: middle; }
+        .formula-box-block { background-color: #f3f4f6; padding: 1rem; border-radius: 0.375rem; display: block; font-size: 1.2em; margin: 1rem 0; text-align: center; border: 1px solid #e5e7eb; }
+        .formula-box[dir="ltr"] .katex, .formula-box-block[dir="ltr"] .katex { text-align: left !important; }
+        #notification-box { transition: opacity 0.5s ease-in-out; }
+        .solution { /* For interactive exercise solutions, specific to this lesson's context */
+             background-color: #F0FDF4; /* Greenish, from original target */
+             border: 1px solid #A7F3D0; /* Greenish border */
+             padding: 1rem;
+             border-radius: 0.5rem;
+             margin-top: 0.5rem;
         }
-        .formula-box {
-            background-color: #E5E7EB; /* Tailwind bg-gray-200 */
-            padding: 0.75rem; /* Tailwind p-3 */
-            border-radius: 0.375rem; /* Tailwind rounded-md */
-            display: inline-block; 
-            font-size: 1.125em; /* Tailwind text-lg */
-            line-height: 1.5; 
-        }
-        .formula-box[dir="ltr"] .katex {
-            text-align: left !important; 
-        }
-        #notification-box {
-            transition: opacity 0.5s ease-in-out;
+        .feedback.bg-green-100 { border: 1px solid #a7f3d0; }
+        .feedback.bg-red-100 { border: 1px solid #fecaca; }
+        .feedback.bg-yellow-100 { border: 1px solid #fde68a; } /* For quiz results */
+        .katex-display > .katex { text-align: center; }
+        .example-box { /* From original target file */
+            border: 1px solid #DBEAFE; 
+            background-color: #EFF6FF; 
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <div id="notification-box" class="fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl hidden z-50 max-w-sm text-right">
-        הודעה תוצג כאן
-    </div>
+    <div id="notification-box" class="fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl hidden z-50 max-w-sm text-right">הודעה תוצג כאן</div>
 
-    <div class="container mx-auto p-4 md:p-8">
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
         <header class="mb-8">
             <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-2">
                 <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="index.html" class="hover:underline">דף ראשי</a> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569 9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="questionnaire_35182_toc.html" class="hover:underline">שאלון 35182</a> 
-                        <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569 9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                    </li>
-                     <li class="flex items-center">
-                        <a href="questionnaire_35182_algebra_toc.html" class="hover:underline">אלגברה</a> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569 9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-gray-500">אי-שוויונות ממעלה ראשונה ושנייה</span>
-                    </li>
+                    <li class="flex items-center"><a href="math_platform_main_page_he.html" class="hover:underline">דף ראשי</a> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></li>
+                    <li class="flex items-center"><a href="" id="breadcrumb-questionnaire" class="hover:underline"></a> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></li>
+                    <li class="flex items-center"><span id="breadcrumb-main-topic" class="text-gray-700"></span> <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></li>
+                    <li class="flex items-center"><span id="breadcrumb-lesson-name" class="text-gray-500"></span></li>
                 </ol>
             </nav>
-            <h1 id="lesson-title" class="text-3xl md:text-4xl font-bold text-blue-700">אי-שוויונות ממעלה ראשונה ושנייה</h1>
+            <h1 id="lesson-title" class="text-3xl md:text-4xl font-bold text-blue-700"></h1>
         </header>
 
         <main class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
 
-            <section id="learn" aria-labelledby="learn-heading" class="mb-12">
+             <section id="learn" aria-labelledby="learn-heading" class="mb-12">
                 <h2 id="learn-heading" class="text-2xl font-semibold text-blue-600 mb-4 border-b-2 border-blue-200 pb-2">לומדים 📚</h2>
                 <div class="space-y-6 text-gray-700 leading-relaxed">
                     <p>אי-שוויון הוא ביטוי מתמטי הקובע כי שני ערכים אינם שווים זה לזה. במקום סימן השוויון (=), אנו משתמשים בסימני אי-שוויון: <span dir="ltr">\(<\)</span> (קטן מ-), <span dir="ltr">\({>}\)</span> (גדול מ-), <span dir="ltr">\(\leq\)</span> (קטן או שווה ל-), <span dir="ltr">\(\geq\)</span> (גדול או שווה ל-).</p>
@@ -67,16 +63,13 @@
                     <p>אלו אי-שוויונות שבהם הנעלם מופיע בחזקה ראשונה בלבד. פותרים אותם באופן דומה למשוואות ממעלה ראשונה (פתיחת סוגריים, כינוס איברים, העברת אגפים), אך עם כלל חשוב אחד:</p>
                     <p class="font-semibold text-red-600">כאשר כופלים או מחלקים את שני אגפי האי-שוויון במספר שלילי, יש להפוך את כיוון סימן האי-שוויון.</p>
 
-                    <h4 class="text-lg font-semibold mt-4 mb-1">דוגמה פתורה (מתוך חומר הבחינה):</h4>
-                    <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                    <div class="example-box">
+                        <h4 class="text-lg font-semibold mt-4 mb-1">דוגמה פתורה (מתוך חומר הבחינה):</h4>
                         <p class="font-medium">שאלה: פתור את האי-שוויון <span class="formula-box" dir="ltr">\(2x-7 > 5x+2\)</span>.</p>
                         <p class="mt-2"><strong>פתרון:</strong></p>
-                        <p>1. העברת אגפים (נעלמים שמאלה, מספרים ימינה):</p>
-                        <p><span class="formula-box" dir="ltr">\(2x - 5x > 2 + 7\)</span></p>
-                        <p>2. כינוס איברים:</p>
-                        <p><span class="formula-box" dir="ltr">\(-3x > 9\)</span></p>
-                        <p>3. חילוק במקדם של <span dir="ltr">\(x\)</span> (שהוא <span dir="ltr">\(-3\)</span>, מספר שלילי). נחלק ב-<span dir="ltr">\(-3\)</span> ונהפוך את סימן האי-שוויון:</p>
-                        <p><span class="formula-box" dir="ltr">\(x < \frac{9}{-3}\)</span></p>
+                        <p>1. העברת אגפים (נעלמים שמאלה, מספרים ימינה): <span class="formula-box" dir="ltr">\(2x - 5x > 2 + 7\)</span></p>
+                        <p>2. כינוס איברים: <span class="formula-box" dir="ltr">\(-3x > 9\)</span></p>
+                        <p>3. חילוק במקדם של <span dir="ltr">\(x\)</span> (שהוא <span dir="ltr">\(-3\)</span>, מספר שלילי). נחלק ב-<span dir="ltr">\(-3\)</span> ונהפוך את סימן האי-שוויון: <span class="formula-box" dir="ltr">\(x < \frac{9}{-3}\)</span></p>
                         <p><span class="formula-box" dir="ltr">\(x < -3\)</span></p>
                         <p class="mt-2">פתרון האי-שוויון הוא <span class="formula-box" dir="ltr">\(x < -3\)</span>.</p>
                     </div>
@@ -104,13 +97,12 @@
                     </ol>
                     <p>שיטה נוספת לקביעת התחומים (לאחר מציאת נקודות האפס) היא "שיטת הנחש" או בדיקת ערכים בתחומים השונים.</p>
 
-                    <h4 class="text-lg font-semibold mt-4 mb-1">דוגמה פתורה (מתוך חומר הבחינה):</h4>
-                    <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                    <div class="example-box">
+                        <h4 class="text-lg font-semibold mt-4 mb-1">דוגמה פתורה (מתוך חומר הבחינה):</h4>
                         <p class="font-medium">שאלה: פתור את האי-שוויון <span class="formula-box" dir="ltr">\(x^2-7x+10 < 0\)</span>.</p>
                         <p class="mt-2"><strong>פתרון:</strong></p>
                         <p>1. האי-שוויון כבר מסודר עם 0 באגף ימין.</p>
-                        <p>2. נמצא את שורשי המשוואה <span class="formula-box" dir="ltr">\(x^2-7x+10 = 0\)</span>:</p>
-                        <p>באמצעות נוסחת השורשים או פירוק לגורמים: <span class="formula-box" dir="ltr">\((x-2)(x-5)=0\)</span>. השורשים הם <span class="formula-box" dir="ltr">\(x_1=2, x_2=5\)</span>.</p>
+                        <p>2. נמצא את שורשי המשוואה <span class="formula-box" dir="ltr">\(x^2-7x+10 = 0\)</span>: <span class="formula-box" dir="ltr">\((x-2)(x-5)=0\)</span>. השורשים הם <span class="formula-box" dir="ltr">\(x_1=2, x_2=5\)</span>.</p>
                         <p>3. סקיצה של פרבולה: כאן <span dir="ltr">\(a=1\)</span> (המקדם של <span dir="ltr">\(x^2\)</span>), שהוא חיובי (<span dir="ltr">\(a>0\)</span>), לכן הפרבולה "צוחקת". היא חותכת את ציר ה-<span dir="ltr">\(x\)</span> בנקודות 2 ו-5.</p>
                         <div class="my-3 text-center">
                             <svg width="200" height="120" viewBox="0 0 200 120" class="inline-block">
@@ -119,7 +111,6 @@
                                 <text x="45" y="90" font-size="12">2</text>
                                 <circle cx="150" cy="70" r="3" fill="black"/> 
                                 <text x="145" y="90" font-size="12">5</text>
-                                <text x="90" y="115" font-size="10" fill="gray">(Vertex)</text>
                             </svg>
                             <p class="text-sm text-gray-600">(סקיצה סכמטית של פרבולה צוחקת החותכת ב-2 וב-5)</p>
                         </div>
@@ -131,7 +122,7 @@
 
             <section id="practice" aria-labelledby="practice-heading" class="mb-12">
                 <h2 id="practice-heading" class="text-2xl font-semibold text-blue-600 mb-4 border-b-2 border-blue-200 pb-2">מתרגלים ✍️</h2>
-                <div class="space-y-8">
+                <div class="space-y-8 mt-6"> 
                     <div class="exercise p-4 border border-gray-300 rounded-lg bg-gray-50">
                         <p class="exercise-question font-medium">תרגיל 1: פתור את האי-שוויון <span class="formula-box" dir="ltr">\(3(x-1) \leq 2x+5\)</span>.</p>
                         <p>רשום את הפתרון (למשל: <span dir="ltr">\(x \leq 8\)</span> או <span dir="ltr">\(x < 8\)</span>).</p>
@@ -143,7 +134,7 @@
                             <button onclick="showSolution('sol1')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out ml-2">הצג פתרון</button>
                         </div>
                         <div id="feedback-ex1" class="feedback hidden mt-3 p-3 rounded-md text-sm"></div>
-                        <div id="sol1" class="solution hidden mt-3 p-3 border-t border-gray-200 bg-white rounded-md">
+                        <div id="sol1" class="solution hidden">
                             <p><strong>פתרון מלא:</strong></p>
                             <p><span class="formula-box" dir="ltr">\(3(x-1) \leq 2x+5\)</span></p>
                             <p>פתיחת סוגריים: <span class="formula-box" dir="ltr">\(3x - 3 \leq 2x+5\)</span></p>
@@ -164,7 +155,7 @@
                             <button onclick="showSolution('sol2')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out ml-2">הצג פתרון</button>
                         </div>
                         <div id="feedback-ex2" class="feedback hidden mt-3 p-3 rounded-md text-sm"></div>
-                        <div id="sol2" class="solution hidden mt-3 p-3 border-t border-gray-200 bg-white rounded-md">
+                        <div id="sol2" class="solution hidden">
                             <p><strong>פתרון מלא:</strong></p>
                             <p>1. נמצא שורשי <span class="formula-box" dir="ltr">\(x^2 - 3x - 4 = 0\)</span>. <span dir="ltr">\((x-4)(x+1)=0\)</span>. השורשים הם <span class="formula-box" dir="ltr">\(x_1=4, x_2=-1\)</span>.</p>
                             <p>2. הפרבולה "צוחקת" (<span dir="ltr">\(a=1 > 0\)</span>).</p>
@@ -201,32 +192,30 @@
                 </div>
             </section>
 
-            <section id="progress" aria-labelledby="progress-heading" class="text-center mt-12 py-8">
-                 <button id="mark-completed" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-150 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+            <section id="progressSection" class="text-center p-6 bg-white rounded-lg shadow-md mt-10">
+                <button id="markCompletedBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-150 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                     סמן שיעור כהושלם ✅
                 </button>
+                <p id="completionStatus" class="mt-3 text-sm text-gray-600 min-h-[20px]"></p>
+                <div id="postCompletionButtons" class="mt-4 space-x-0 md:space-x-4 space-y-3 md:space-y-0 rtl:space-x-reverse hidden">
+                    <button id="nextLessonBtn" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition">השיעור הבא &rarr;</button>
+                    <button id="returnToMenuBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition">חזור לרשימת השיעורים</button>
+                </div>
             </section>
         </main>
 
-        <footer class="text-center text-gray-600 mt-12 py-4 border-t border-gray-300">
+        <footer class="text-center text-gray-600 mt-12 py-4 border-t border-gray-300 no-print">
             <p>&copy; <span id="current-year"></span> פלטפורמת למידה במתמטיקה. כל הזכויות שמורות.</p>
         </footer>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false},
-                    {left: "\\(", right: "\\)", display: false}, {left: "\\[", right: "\\]", display: true}
-                ],
-                throwOnError: false
-            });
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            checkLessonStatus();
-        });
+        const LESSON_ID = '35182_algebra_inequalities';
+        const LESSON_TITLE_FOR_NOTIFICATION = 'אי-שוויונות';
+        const QUESTIONNAIRE_PAGE_URL = 'questionnaire_35182_lessons_page_he.html';
+        const NEXT_LESSON_URL = 'lesson_35182_algebra_percentages.html'; 
 
-        function showNotification(message, type = 'info', duration = 3000) {
+        function showNotification(message, type = 'info', duration = 3000) { // Kept from original target (blue for info)
             const notificationBox = document.getElementById('notification-box');
             if (!notificationBox) return;
             notificationBox.textContent = message;
@@ -238,36 +227,124 @@
             notificationBox.style.opacity = 1;
             setTimeout(() => {
                 notificationBox.style.opacity = 0;
-                setTimeout(() => { notificationBox.classList.add('hidden'); }, 500);
+                setTimeout(() => { notificationBox.classList.add('hidden'); }, 500); 
             }, duration);
         }
-        
+
+        function markLessonAsCompleted() { // From reference
+            const lessonId = LESSON_ID;
+            try {
+                localStorage.setItem(`lesson_completed_${lessonId}`, 'true');
+                const statusEl = document.getElementById('completionStatus');
+                const buttonEl = document.getElementById('markCompletedBtn');
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                const nextLessonBtn = document.getElementById('nextLessonBtn');
+                const returnToMenuBtn = document.getElementById('returnToMenuBtn');
+
+                if (statusEl) {
+                    statusEl.textContent = 'השיעור סומן כהושלם!';
+                    statusEl.className = 'mt-3 text-sm text-green-600 font-semibold';
+                }
+                if (buttonEl) {
+                    buttonEl.disabled = true;
+                    buttonEl.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                    buttonEl.classList.add('bg-gray-400', 'cursor-not-allowed', 'opacity-75');
+                    buttonEl.innerHTML = 'השיעור הושלם 👍';
+                }
+                if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.remove('hidden');
+                if (nextLessonBtn) {
+                    if (NEXT_LESSON_URL) nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
+                    else {
+                        nextLessonBtn.textContent = 'כל הכבוד! סיימת את החלק הזה.';
+                        nextLessonBtn.disabled = true;
+                        nextLessonBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                        nextLessonBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    }
+                }
+                if (returnToMenuBtn) returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
+                showNotification('השיעור ' + LESSON_TITLE_FOR_NOTIFICATION + ' סומן כהושלם!', 'success');
+            } catch (e) {
+                const statusEl = document.getElementById('completionStatus');
+                if (statusEl) {
+                    statusEl.textContent = 'שגיאה בשמירת ההתקדמות. ודא ש-localStorage מאופשר.';
+                    statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
+                }
+                showNotification('שגיאה בשמירת ההתקדמות.', 'error');
+            }
+        }
+
+        function checkLessonStatus() { // From reference
+            const lessonId = LESSON_ID;
+            try {
+                const isCompleted = localStorage.getItem(`lesson_completed_${lessonId}`);
+                const statusEl = document.getElementById('completionStatus');
+                const buttonEl = document.getElementById('markCompletedBtn');
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                const nextLessonBtn = document.getElementById('nextLessonBtn');
+                const returnToMenuBtn = document.getElementById('returnToMenuBtn');
+
+                if (isCompleted === 'true') {
+                    if (statusEl) {
+                        statusEl.textContent = 'שיעור זה הושלם בעבר.';
+                        statusEl.className = 'mt-3 text-sm text-green-600 font-semibold';
+                    }
+                    if (buttonEl) {
+                        buttonEl.disabled = true;
+                        buttonEl.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                        buttonEl.classList.add('bg-gray-400', 'cursor-not-allowed', 'opacity-75');
+                        buttonEl.innerHTML = 'השיעור הושלם 👍';
+                    }
+                    if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.remove('hidden');
+                    if (nextLessonBtn) {
+                        if (NEXT_LESSON_URL) nextLessonBtn.onclick = () => { window.location.href = NEXT_LESSON_URL; };
+                        else {
+                            nextLessonBtn.textContent = 'כל הכבוד! סיימת את החלק הזה.';
+                            nextLessonBtn.disabled = true;
+                            nextLessonBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                            nextLessonBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        }
+                    }
+                    if (returnToMenuBtn) returnToMenuBtn.onclick = () => { window.location.href = QUESTIONNAIRE_PAGE_URL; };
+                } else {
+                    if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.add('hidden');
+                }
+            } catch (e) {
+                const statusEl = document.getElementById('completionStatus');
+                if (statusEl) {
+                    statusEl.textContent = 'שגיאה בטעינת סטטוס השיעור.';
+                    statusEl.className = 'mt-3 text-sm text-red-600 font-semibold';
+                }
+                const postCompletionButtonsDiv = document.getElementById('postCompletionButtons');
+                if (postCompletionButtonsDiv) postCompletionButtonsDiv.classList.add('hidden');
+            }
+        }
+
         function normalizeInequalityAnswer(answer) {
-            // Remove spaces and convert "או" to "or" for consistency
             return answer.replace(/\s+/g, '').toLowerCase().replace(/או/g, 'or');
         }
 
         function checkAnswerInequality(exerciseId, correctAnswer) {
             const feedbackEl = document.getElementById(`feedback-${exerciseId}`);
             const userAnswer = document.getElementById(`${exerciseId}-answer`).value;
-            
             const normalizedUserAnswer = normalizeInequalityAnswer(userAnswer);
             const normalizedCorrectAnswer = normalizeInequalityAnswer(correctAnswer);
 
             if (normalizedUserAnswer === normalizedCorrectAnswer) {
                 feedbackEl.textContent = 'נכון מאוד! כל הכבוד! 👍';
-                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700';
+                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700 border border-green-300';
             } else {
                 feedbackEl.textContent = 'תשובה שגויה. נסה שוב או הצג את הפתרון. 🤔';
-                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700';
+                feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700 border border-red-300';
             }
             feedbackEl.classList.remove('hidden');
         }
 
-
         function showSolution(solutionId) {
             const solutionEl = document.getElementById(solutionId);
-            if (solutionEl) solutionEl.classList.toggle('hidden');
+            if (solutionEl) {
+                solutionEl.classList.toggle('hidden');
+                if (!solutionEl.classList.contains('hidden')) renderMathInElement(solutionEl);
+            }
         }
 
         const quizSubmitButton = document.getElementById('submit-quiz');
@@ -276,86 +353,56 @@
                 let score = 0;
                 const totalQuestions = 2;
                 const correctAnswers = { q1: 'b', q2: 'b' }; 
-                // Q1: -2x + 6 > 10 => -2x > 4 => x < -2. So 'b' is correct.
-                // Q2: x^2 - 9 <= 0. Roots are x=3, x=-3. Parabola "smiles". Below or on axis is between roots. So -3 <= x <= 3. 'b' is correct.
-                
                 const q1Answer = document.querySelector('input[name="q1"]:checked');
                 if (q1Answer && q1Answer.value === correctAnswers.q1) score++;
-                
                 const q2Answer = document.querySelector('input[name="q2"]:checked');
                 if (q2Answer && q2Answer.value === correctAnswers.q2) score++;
-                
                 const resultsEl = document.getElementById('quiz-results');
                 resultsEl.innerHTML = `הציון שלך הוא: <strong>${score}</strong> מתוך ${totalQuestions}.`;
-                resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-yellow-100 text-yellow-700';
+                resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-yellow-100 text-yellow-700 border border-yellow-300';
                 resultsEl.classList.remove('hidden');
-                
-                recordQuizScore(getLessonId(), score, totalQuestions);
+                recordQuizScore(LESSON_ID, score, totalQuestions);
                 showNotification(`הבוחן הוגש! ציון: ${score}/${totalQuestions}`, 'info');
             });
         }
 
-        function getLessonId() {
-            const titleElement = document.getElementById('lesson-title');
-            return titleElement ? titleElement.textContent.trim().toLowerCase().replace(/\s+/g, '_').replace(/[^\wא-ת_]+/g, '') : 'unknown_lesson';
-        }
-        
-        const markCompletedButton = document.getElementById('mark-completed');
-        if (markCompletedButton) {
-            markCompletedButton.addEventListener('click', function() {
-                const lessonId = getLessonId(); 
-                if (lessonId === 'unknown_lesson') {
-                    showNotification("שגיאה: לא ניתן היה לזהות את השיעור לסימון.", "error");
-                    return;
-                }
-                markLessonAsCompleted(lessonId);
-            });
-        }
-
-        function markLessonAsCompleted(lessonId) {
-            try {
-                localStorage.setItem(`lesson_completed_${lessonId}`, 'true');
-                showNotification('השיעור סומן כהושלם!', 'success');
-                if(markCompletedButton){
-                    markCompletedButton.textContent = 'השיעור הושלם 👍';
-                    markCompletedButton.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-                    markCompletedButton.classList.add('bg-green-600', 'cursor-not-allowed');
-                    markCompletedButton.disabled = true;
-                }
-            } catch (e) {
-                console.error("Error accessing localStorage:", e);
-                showNotification("שגיאה בשמירת ההתקדמות.", "error");
-            }
-        }
-
         function recordQuizScore(lessonId, score, totalQuestions) {
-             if (lessonId === 'unknown_lesson') {
-                showNotification("שגיאה: לא ניתן היה לזהות את השיעור לשמירת ציון.", "error");
-                return;
-            }
             try {
                 localStorage.setItem(`lesson_quiz_score_${lessonId}`, JSON.stringify({score, totalQuestions, date: new Date().toISOString()}));
             } catch (e) {
-                console.error("Error accessing localStorage:", e);
                 showNotification("שגיאה בשמירת ציון הבוחן.", "error");
             }
         }
-
-        function checkLessonStatus() {
-            const lessonId = getLessonId();
-            if (lessonId === 'unknown_lesson') return;
-            try {
-                const isCompleted = localStorage.getItem(`lesson_completed_${lessonId}`);
-                if (isCompleted === 'true' && markCompletedButton) {
-                    markCompletedButton.textContent = 'השיעור הושלם 👍';
-                    markCompletedButton.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-                    markCompletedButton.classList.add('bg-green-600', 'cursor-not-allowed');
-                    markCompletedButton.disabled = true;
-                }
-            } catch (e) {
-                 console.error("Error accessing localStorage:", e);
+        
+        function renderMathInElement(element) { // From reference
+            if (window.renderMathInElement && element) {
+                window.renderMathInElement(element, {
+                    delimiters: [ {left: "\(", right: "\)", display: false}, {left: "\[", right: "\]", display: true} ],
+                    throwOnError: false
+                });
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body);
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const markCompletedBtn = document.getElementById('markCompletedBtn');
+            if (markCompletedBtn) markCompletedBtn.addEventListener('click', markLessonAsCompleted);
+            checkLessonStatus();
+
+            document.title = LESSON_TITLE_FOR_NOTIFICATION + " | אלגברה | שאלון 35182 | פלטפורמת למידה במתמטיקה";
+            const lessonTitleElement = document.getElementById('lesson-title');
+            if(lessonTitleElement) lessonTitleElement.innerHTML = LESSON_TITLE_FOR_NOTIFICATION + " <span class='text-2xl md:text-3xl'>&lt;&gt;&le;&ge;</span>"; 
+            const breadcrumbQ = document.getElementById('breadcrumb-questionnaire');
+            if(breadcrumbQ) {
+                breadcrumbQ.textContent = 'שאלון 35182'; 
+                breadcrumbQ.href = QUESTIONNAIRE_PAGE_URL;
+            }
+            const breadcrumbMainTopic = document.getElementById('breadcrumb-main-topic');
+            if(breadcrumbMainTopic) breadcrumbMainTopic.textContent = 'אלגברה'; 
+            const breadcrumbLessonName = document.getElementById('breadcrumb-lesson-name');
+            if(breadcrumbLessonName) breadcrumbLessonName.textContent = LESSON_TITLE_FOR_NOTIFICATION;
+        });
     </script>
 </body>
 </html>
