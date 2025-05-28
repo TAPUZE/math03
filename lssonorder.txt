@@ -1,0 +1,235 @@
+#
+
+שם השיעור
+
+שם הקובץ
+
+1
+
+משוואה ממעלה ראשונה עם נעלם אחד
+
+lesson_35182_algebra_linear_equation_one_variable.html
+
+2
+
+מערכת משוואות בשני נעלמים
+
+lesson_35182_algebra_linear_equations_two_variables.html
+
+3
+
+משוואות ריבועיות
+
+lesson_35182_algebra_quadratic_equations.html
+
+4
+
+אי-שוויונות
+
+lesson_35182_algebra_inequalities.html
+
+5
+
+אחוזים
+
+lesson_35182_algebra_percentages.html
+
+6
+
+בעיות מילוליות (אלגברה)
+
+lesson_35182_algebra_word_problems.html
+
+7
+
+תכונות גיאומטריות של צורות
+
+lesson_35182_geometry_shapes_properties.html
+
+8
+
+שטח והיקף של צורות גיאומטריות
+
+lesson_35182_geometry_area_perimeter.html
+
+9
+
+גיאומטריה אנליטית: נקודות
+
+lesson_35182_analytic_geometry_points.html
+
+10
+
+גיאומטריה אנליטית: מרחק
+
+lesson_35182_analytic_geometry_distance.html
+
+11
+
+גיאומטריה אנליטית: אמצע קטע
+
+lesson_35182_analytic_geometry_midpoint.html
+
+12
+
+גיאומטריה אנליטית: שיפוע ומשוואת הישר
+
+lesson_35182_analytic_geometry_slope_line_equation.html
+
+13
+
+סדרות חשבוניות - מבוא
+
+lesson_35182_sequences_arithmetic_intro.html
+
+14
+
+טריגונומטריה במשולש ישר זווית
+
+lesson_35182_trigonometry_right_triangle.html
+
+15
+
+סטטיסטיקה - מבוא
+
+lesson_35182_statistics_intro.html
+
+16
+
+הסתברות - מבוא
+
+lesson_35182_probability_intro.html
+
+שאלון 35381 (802)
+#
+
+שם השיעור
+
+שם הקובץ
+
+1
+
+חקירת פונקציה ריבועית (פרבולה)
+
+lesson_35381_functions_parabola_investigation.html
+
+2
+
+סדרות חשבוניות (המשך) - סכום
+
+lesson_35381_sequences_arithmetic_sum.html
+
+3
+
+גדילה ודעיכה
+
+lesson_35381_growth_decay.html
+
+4
+
+סטטיסטיקה (המשך) - מדדי פיזור
+
+lesson_35381_statistics_dispersion.html
+
+5
+
+הסתברות (המשך) - דיאגרמת עץ והסתברות מותנית
+
+lesson_35381_probability_tree_conditional.html
+
+6
+
+התפלגות נורמלית
+
+lesson_35381_normal_distribution.html
+
+7
+
+טריגונומטריה במישור (המשך)
+
+lesson_35381_trigonometry_plane.html
+
+שאלון 35382 (803)
+#
+
+שם השיעור
+
+שם הקובץ
+
+1
+
+בעיות קנייה ומכירה
+
+lesson_35382_problems_buy_sell_he.html
+
+2
+
+בעיות תנועה
+
+lesson_35382_problems_motion_he.html
+
+3
+
+בעיות הספק
+
+lesson_35382_problems_work_rate_he.html
+
+4
+
+בעיות גיאומטריות-אלגבריות
+
+lesson_35382_problems_geometric_algebraic_he.html
+
+5
+
+הישר (המשך)
+
+lesson_35382_analytic_geometry_line_continued_he.html
+
+6
+
+המעגל
+
+lesson_35382_analytic_geometry_circle_he.html
+
+7
+
+משיק למעגל
+
+lesson_35382_analytic_geometry_circle_tangent_he.html
+
+8
+
+חיתוך של מעגל וישר
+
+lesson_35382_analytic_geometry_circle_line_intersection_he.html
+
+9
+
+פונקציית פולינום (חדו"א)
+
+lesson_35382_calculus_polynomial_he.html
+
+10
+
+פונקציה רציונלית (חדו"א)
+
+lesson_35382_calculus_rational_he.html
+
+11
+
+פונקציית שורש (חדו"א)
+
+lesson_35382_calculus_square_root_he.html
+
+12
+
+בעיות קיצון (חדו"א)
+
+lesson_35382_calculus_optimization_he.html
+
+13
+
+חשבון אינטגרלי (פולינומים)
+
+lesson_35382_calculus_integral_polynomial_he.html

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בעיות קנייה ומכירה | שאלון 35382 | פלטפורמת למידה במתמטיקה</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #f9fafb; /* bg-gray-50 */
+        }
+        .formula-box {
+            background-color: #E5E7EB; /* bg-gray-200 */
+            padding: 0.75rem; 
+            border-radius: 0.375rem; /* rounded-md */
+            display: inline-block; 
+            font-size: 1.125em; /* text-lg */
+            line-height: 1.5; 
+            margin: 0.25rem 0.1rem;
+            vertical-align: middle;
+        }
+        .formula-box-block {
+             background-color: #f3f4f6; /* bg-gray-100 for block */
+             padding: 1rem;
+             border-radius: 0.375rem;
+             display: block;
+             font-size: 1.2em;
+             margin: 1rem 0;
+             text-align: center;
+             border: 1px solid #e5e7eb;
+        }
+        .formula-box[dir="ltr"] .math-inline { text-align: left !important; }
+        #notification-box {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .solution {
+            background-color: #f0e6ff; /* Lighter purple for solution */
+            border: 1px solid #d8b4fe; /* purple-300 for border */
+        }
+        .feedback.bg-green-100 { border: 1px solid #a7f3d0; }
+        .feedback.bg-red-100 { border: 1px solid #fecaca; }
+        .feedback.bg-yellow-100 { border: 1px solid #fde68a; }
+        .math-display { text-align: center; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+<div id="notification-box" class="fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl hidden z-50 max-w-sm text-right">
+הודעה תוצג כאן
+</div>
+
+<div class="container mx-auto p-4 md:p-8 max-w-5xl">
+<header class="mb-8">    <nav aria-label="breadcrumb" class="text-sm text-gray-600 mb-2">
+    <ol class="list-none p-0 inline-flex">
+        <li class="flex items-center">
+            <a href="index.html" class="hover:underline">דף ראשי</a>
+            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.30c9.373 9.372 9.373 24.568.001 33.941z"/>
+            </svg>
+        </li>
+        <li class="flex items-center">
+            <a href="questionnaire_35382_lessons_he.html" id="breadcrumb-questionnaire" class="hover:underline">שאלון 35382</a>
+            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.40-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.30c9.373 9.372 9.373 24.568.001 33.941z"/>
+            </svg>
+        </li>
+        <li class="flex items-center">
+            <span id="breadcrumb-main-topic" class="text-gray-700">בעיות מילוליות</span>
+            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.40-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.30c9.373 9.372 9.373 24.568.001 33.941z"/>
+            </svg>
+        </li>
+        <li class="flex items-center">
+            <span id="breadcrumb-lesson-name" class="text-gray-500">בעיות קנייה ומכירה</span>
+        </li>
+    </ol>
+    </nav>
+    <h1 id="lesson-title" class="text-3xl md:text-4xl font-bold text-purple-700">בעיות קנייה ומכירה | שאלון 35382 |</h1>
+</header>
+
+<main class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+
+    <section id="learn" aria-labelledby="learn-heading" class="mb-12">
+        <h2 id="learn-heading" class="text-2xl font-semibold text-purple-600 mb-4 border-b-2 border-purple-200 pb-2">לומדים: עקרונות בפתרון בעיות קנייה ומכירה 💰</h2>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p>בעיות קנייה ומכירה הן סוג נפוץ של בעיות מילוליות. הן עוסקות במחירים, הנחות, התייקרויות, רווח והפסד. המפתח לפתרון בעיות אלו הוא הבנה של המושגים הבסיסיים ותרגום נכון של הנתונים למשוואות אלגבריות.</p>
+            
+            <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-800">1. מושגי יסוד</h3>
+            <ul class="list-disc pr-6 space-y-2">
+                <li><strong>מחיר קנייה:</strong> הסכום ששולם עבור רכישת מוצר או סחורה.</li>
+                <li><strong>מחיר מכירה:</strong> הסכום שבו נמכר המוצר או הסחורה.</li>
+                <li><strong>רווח:</strong> ההפרש החיובי בין מחיר המכירה למחיר הקנייה.
+                    <div class="formula-box-block"> \text{Profit} = \text{Selling Price} - \text{Purchase Price} </div>
+                </li>
+                <li><strong>הפסד:</strong> ההפרש השלילי (או ההפרש החיובי בין מחיר הקנייה למכירה, כאשר המכירה נמוכה מהקנייה).
+                     <div class="formula-box-block"> \text{Loss} = \text{Purchase Price} - \text{Selling Price} </div>
+                </li>
+                <li><strong>אחוז רווח/הפסד:</strong> מחושב בדרך כלל ביחס למחיר הקנייה.
+                    <div class="formula-box-block"> \text{Profit \%} = \frac{\text{Profit}}{\text{Purchase Price}} \cdot 100\% </div>
+                    <div class="formula-box-block"> \text{Loss \%} = \frac{\text{Loss}}{\text{Purchase Price}} \cdot 100\% </div>
+                </li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-800">2. חישוב שינויי מחיר באחוזים</h3>
+            <p>כאשר מחיר משתנה באחוז מסוים (התייקרות או הוזלה), ניתן לחשב את המחיר החדש:</p>
+            <ul class="list-disc pr-6 space-y-2">
+                <li><strong>התייקרות:</strong> אם מחיר <span class="formula-box" dir="ltr">\(P\)</span> מתייקר ב-<span class="formula-box" dir="ltr">\(x\%\)</span>, המחיר החדש הוא <span class="formula-box" dir="ltr">\(P \cdot (1 + \frac{x}{100})\)</span>.</li>
+                <li><strong>הוזלה (הנחה):</strong> אם מחיר <span class="formula-box" dir="ltr">\(P\)</span> מוזל ב-<span class="formula-box" dir="ltr">\(x\%\)</span>, המחיר החדש הוא <span class="formula-box" dir="ltr">\(P \cdot (1 - \frac{x}{100})\)</span>.</li>
+            </ul>
+            <p>בבעיות מורכבות ייתכנו מספר שלבי התייקרות ו/או הוזלה. חשוב לבצע כל שלב על המחיר שנוצר בשלב הקודם.</p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-800">3. אסטרטגיית פתרון</h3>
+            <ol class="list-decimal pr-6 space-y-2">
+                <li><strong>קרא בעיון את הבעיה:</strong> הבן את כל הנתונים ואת מה שנדרש למצוא.</li>
+                <li><strong>הגדר משתנים:</strong> סמן את הגדלים הלא ידועים (בדרך כלל המחיר המקורי או כמות) במשתנים (למשל, <span class="formula-box" dir="ltr">\(x\)</span>).</li>
+                <li><strong>בנה משוואות:</strong> תרגם את הנתונים והקשרים ביניהם למשוואות אלגבריות. השתמש במושגים ובנוסחאות שלמדת.</li>
+                <li><strong>פתור את המשוואות:</strong> מצא את ערך המשתנים.</li>
+                <li><strong>בדוק את הפתרון:</strong> ודא שהפתרון הגיוני ועונה על כל תנאי הבעיה. רשום תשובה מילולית ברורה.</li>
+            </ol>
+
+            <h3 class="text-xl font-semibold mt-8 mb-2 text-gray-800">דוגמה פתורה (ממסמך המחקר)</h3>
+            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50 space-y-3 my-6">
+                <p class="font-medium"><strong>תרגיל מתוקן:</strong> סוחר קנה סחורה. הוא מכר 40% מהסחורה ברווח של 25% ואת שאר הסחורה (60%) ברווח של 10%. הרווח הכולל היה 340 ש"ח. מה היה מחיר הקנייה של כל הסחורה?</p>
+                <p><strong>פתרון:</strong></p>
+                <p>1. נסמן את מחיר הקנייה הכולל של הסחורה ב-<span class="formula-box" dir="ltr">\(x\)</span> ש"ח.</p>
+                <p>2. החלק הראשון של הסחורה (40%):</p>
+                <ul class="list-disc pr-4">
+                    <li>שווי קנייה של חלק זה: <span class="formula-box" dir="ltr">\(0.40x\)</span></li>
+                    <li>רווח על חלק זה: <span class="formula-box" dir="ltr">\(25\%\)</span>, כלומר <span class="formula-box" dir="ltr">\(0.25 \cdot 0.40x = 0.1x\)</span> ש"ח.</li>
+                </ul>
+                <p>3. החלק השני של הסחורה (שאר הסחורה, 100% - 40% = 60%):</p>
+                <ul class="list-disc pr-4">
+                    <li>שווי קנייה של חלק זה: <span class="formula-box" dir="ltr">\(0.60x\)</span></li>
+                    <li>רווח על חלק זה: <span class="formula-box" dir="ltr">\(10\%\)</span>, כלומר <span class="formula-box" dir="ltr">\(0.10 \cdot 0.60x = 0.06x\)</span> ש"ח.</li>
+                </ul>
+                <p>4. הרווח הכולל הוא סכום הרווחים משני החלקים:</p>
+                <div class="formula-box-block"> \text{Profit Part 1} + \text{Profit Part 2} = \text{Total Profit} </div>
+                <div class="formula-box-block" dir="ltr"> \(0.1x + 0.06x = 340\) </div>
+                <p>5. נפתור את המשוואה:</p>
+                <div class="formula-box-block" dir="ltr"> \(0.16x = 340\) </div>
+                <div class="formula-box-block" dir="ltr"> \(x = \frac{340}{0.16}\) </div>
+                <div class="formula-box-block" dir="ltr"> \(x = 2125\) </div>
+                <p><strong>תשובה:</strong> מחיר הקנייה של כל הסחורה היה 2125 ש"ח.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="practice" aria-labelledby="practice-heading" class="mb-12">
+        <h2 id="practice-heading" class="text-2xl font-semibold text-purple-600 mb-4 border-b-2 border-purple-200 pb-2">מתרגלים ✍️</h2>
+        <div class="space-y-6">
+            <div class="exercise p-4 border border-gray-300 rounded-lg bg-gray-50">
+                <p class="exercise-question font-medium"><strong>תרגיל 1:</strong> מחיר חולצה היה 120 ש"ח. החולצה התייקרה ב-15%, ולאחר מכן הוזלה ב-10% (מהמחיר החדש). מה מחיר החולצה לאחר שני השינויים?</p>
+                <div class="mt-3">
+                    <input type="text" id="ex1-answer" class="border border-gray-300 p-2 rounded w-full md:w-1/2 focus:ring-purple-500 focus:border-purple-500" placeholder="הכנס מחיר סופי (בשקלים)">
+                </div>
+                <div class="mt-3">
+                    <button onclick="checkAnswer('ex1', '124.2', false, 0.01)" class="check-answer-btn bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">בדוק תשובה</button>
+                    <button onclick="showSolution('sol1')" class="show-solution-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out ml-2">הצג פתרון</button>
+                </div>
+                <div id="feedback-ex1" class="feedback hidden mt-3 p-3 rounded-md text-sm"></div>
+                <div id="sol1" class="solution hidden mt-3 p-3 border-t border-gray-200 bg-white rounded-md">
+                    <p><strong>פתרון מלא:</strong></p>
+                    <p>1. מחיר התחלתי: 120 ש"ח.</p>
+                    <p>2. התייקרות ב-15%:</p>
+                    <div class="formula-box-block"> \text{Price after increase} = 120 \cdot (1 + \frac{15}{100}) = 120 \cdot 1.15 = 138 \text{ NIS} </div>
+                    <p>3. הוזלה ב-10% (מהמחיר החדש, 138 ש"ח):</p>
+                    <div class="formula-box-block"> \text{Price after decrease} = 138 \cdot (1 - \frac{10}{100}) = 138 \cdot 0.90 = 124.2 \text{ NIS} </div>
+                    <p><strong>תשובה:</strong> מחיר החולצה לאחר שני השינויים הוא 124.2 ש"ח.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="test-yourself" aria-labelledby="test-heading" class="mb-12">
+        <h2 id="test-heading" class="text-2xl font-semibold text-purple-600 mb-4 border-b-2 border-purple-200 pb-2">בחן את עצמך 🧐</h2>
+        <form id="quizForm" class="space-y-6">
+            <div class="quiz-question p-4 border border-gray-300 rounded-lg bg-gray-50">
+                <p class="font-medium"><strong>שאלה 1:</strong> מוצר נקנה ב-80 ש"ח ונמכר ב-100 ש"ח. מהו אחוז הרווח?</p>
+                <div class="mt-2 space-y-1">
+                    <label class="flex items-center"><input type="radio" name="q1" value="a" class="form-radio text-purple-600 ml-2"> 20%</label>
+                    <label class="flex items-center"><input type="radio" name="q1" value="b" class="form-radio text-purple-600 ml-2"> 25%</label>
+                    <label class="flex items-center"><input type="radio" name="q1" value="c" class="form-radio text-purple-600 ml-2"> 80%</label>
+                </div>
+            </div>
+            <div class="quiz-question p-4 border border-gray-300 rounded-lg bg-gray-50">
+                <p class="font-medium"><strong>שאלה 2:</strong> מחיר מוצר לאחר הנחה של 30% הוא 140 ש"ח. מה היה מחירו המקורי?</p>
+                 <div class="mt-2 space-y-1">
+                    <label class="flex items-center"><input type="radio" name="q2" value="a" class="form-radio text-purple-600 ml-2"> 182 ש"ח</label>
+                    <label class="flex items-center"><input type="radio" name="q2" value="b" class="form-radio text-purple-600 ml-2"> 200 ש"ח</label>
+                    <label class="flex items-center"><input type="radio" name="q2" value="c" class="form-radio text-purple-600 ml-2"> 100 ש"ח</label>
+                </div>
+            </div>
+            <button type="button" id="submit-quiz" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-150 ease-in-out">הגש בוחן</button>
+        </form>
+        <div id="quiz-results" class="hidden mt-3 p-3 rounded-md text-sm"></div>
+    </section>    <section id="progress" aria-labelledby="progress-heading" class="text-center mt-12 py-8">
+        <h2 id="progress-heading" class="text-2xl font-semibold text-green-600 mb-4">התקדמות 📈</h2>
+        <div id="completion-status" class="mb-4">
+            <span id="completed-indicator" class="hidden inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                ✅ השיעור הושלם
+            </span>
+            <span id="not-completed-indicator" class="hidden inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                ⏳ השיעור לא הושלם
+            </span>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <button id="markCompleted" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">
+                סמן כהושלם
+            </button>
+            <button id="markNotCompleted" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">
+                בטל השלמה
+            </button>
+        </div>
+        <div class="mt-4">
+            <a id="lessonChoiceMenuLink" href="questionnaire_35382_lessons_he.html" class="inline-block bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">
+                &larr; חזרה לתפריט השיעורים
+            </a>
+        </div></main>
+</div>
+
+<footer class="bg-gray-800 text-white text-center p-6 mt-12">
+    <div class="container mx-auto">
+        <p class="text-sm">&copy; <span id="current-year-footer"></span> כל הזכויות שמורות. פלטפורמת למידה במתמטיקה.</p>
+        <p class="text-xs mt-1">פותח בסיוע GitHub Copilot.</p>
+    </div>
+</footer>
+
+<script>
+    // === Lesson Configuration ===
+    const LESSON_ID_SUFFIX = '35382_problems_buy_sell';
+    const STORAGE_KEY = `lesson_completed_${LESSON_ID_SUFFIX}`;
+    const LESSON_CHOICE_MENU_URL = 'questionnaire_35382_lessons_he.html';
+    const NEXT_LESSON_URL = 'lesson_35382_problems_motion_he.html';
+    const LESSON_TITLE = 'בעיות קנייה ומכירה | שאלון 35382 |';
+    const QUIZ_ANSWERS = { q1: 'b', q2: 'b' };
+
+    // === Notification System ===
+    function showNotification(message, type = 'info', duration = 3000) {
+        const notificationBox = document.getElementById('notification-box');
+        if (!notificationBox) {
+            console.warn('Notification box not found. Skipping notification:', message);
+            return;
+        }
+        notificationBox.textContent = message;
+        notificationBox.className = 'fixed top-5 right-5 text-white p-4 rounded-lg shadow-xl z-50 max-w-sm text-right'; 
+        if (type === 'success') {
+            notificationBox.classList.add('bg-green-500');
+        } else if (type === 'error') {
+            notificationBox.classList.add('bg-red-500');
+        } else {
+            notificationBox.classList.add('bg-purple-500');
+        }
+        notificationBox.classList.remove('hidden');
+        notificationBox.style.opacity = 1;
+
+        setTimeout(() => {
+            notificationBox.style.opacity = 0;
+            setTimeout(() => {
+                notificationBox.classList.add('hidden');
+            }, 500); 
+        }, duration);
+    }
+
+    // === Progress Management ===
+    function updateButtonVisibility() {
+        const markCompletedButton = document.getElementById('markCompleted');
+        const markNotCompletedButton = document.getElementById('markNotCompleted');
+        const completedIndicator = document.getElementById('completed-indicator');
+        const notCompletedIndicator = document.getElementById('not-completed-indicator');
+
+        if (!markCompletedButton || !markNotCompletedButton) return;
+
+        try {
+            const isCompleted = localStorage.getItem(STORAGE_KEY) === 'true';
+            
+            if (isCompleted) {
+                markCompletedButton.style.display = 'none';
+                markNotCompletedButton.style.display = 'inline-block';
+                if (completedIndicator) completedIndicator.classList.remove('hidden');
+                if (notCompletedIndicator) notCompletedIndicator.classList.add('hidden');
+            } else {
+                markCompletedButton.style.display = 'inline-block';
+                markNotCompletedButton.style.display = 'none';
+                if (completedIndicator) completedIndicator.classList.add('hidden');
+                if (notCompletedIndicator) notCompletedIndicator.classList.remove('hidden');
+            }
+        } catch (e) {
+            console.error('Error reading completion status from localStorage:', e);
+            markCompletedButton.style.display = 'inline-block';
+            markNotCompletedButton.style.display = 'none';
+        }
+    }
+
+    function markLessonAsCompleted() {
+        try {
+            localStorage.setItem(STORAGE_KEY, 'true');
+            updateButtonVisibility();
+            showNotification('השיעור סומן כהושלם!', 'success');
+        } catch (e) {
+            console.error('Error saving completion status to localStorage:', e);
+            showNotification('שגיאה בשמירת סטטוס ההשלמה.', 'error');
+        }
+    }
+
+    function markLessonAsNotCompleted() {
+        try {
+            localStorage.removeItem(STORAGE_KEY);
+            updateButtonVisibility();
+            showNotification('סטטוס הושלם בוטל.', 'info');
+        } catch (e) {
+            console.error('Error removing completion status from localStorage:', e);
+            showNotification('שגיאה בביטול סטטוס ההשלמה.', 'error');
+        }
+    }
+
+    // === Exercise Functions ===
+    function checkAnswer(exerciseId, correctAnswer, isTuple = false, tolerance = 0.001) {
+        const feedbackEl = document.getElementById(`feedback-${exerciseId}`);
+        const userAnswerInput = document.getElementById(`${exerciseId}-answer`);
+        
+        if (!feedbackEl || !userAnswerInput) return;
+        
+        let userAnswerStr = userAnswerInput.value.trim();
+        let isCorrect = false;
+        
+        if (isTuple) {
+            userAnswerStr = userAnswerStr.replace(/\s/g, '');
+            isCorrect = (userAnswerStr === correctAnswer);
+        } else {
+            const userAnswerNum = parseFloat(userAnswerStr);
+            const correctAnswerNum = parseFloat(correctAnswer);
+            if (!isNaN(userAnswerNum) && !isNaN(correctAnswerNum)) {
+                isCorrect = Math.abs(userAnswerNum - correctAnswerNum) <= tolerance;
+            } else { 
+                isCorrect = (userAnswerStr === correctAnswer);
+            }
+        }
+        
+        if (isCorrect) {
+            feedbackEl.textContent = 'נכון מאוד! כל הכבוד! 👍';
+            feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700';
+        } else {
+            feedbackEl.textContent = 'תשובה שגויה. נסה שוב או הצג את הפתרון. 🤔';
+            feedbackEl.className = 'feedback mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700';
+        }
+        feedbackEl.classList.remove('hidden');
+    }
+
+    function showSolution(solutionId) {
+        const solutionEl = document.getElementById(solutionId);
+        if (solutionEl) {
+            solutionEl.classList.toggle('hidden');
+            if (!solutionEl.classList.contains('hidden') && window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([solutionEl]).catch((err) => console.error('MathJax error:', err));
+            }
+        }
+    }
+
+    // === Quiz Functions ===
+    function recordQuizScore(score, totalQuestions) {
+        try { 
+            localStorage.setItem(`lesson_quiz_score_${LESSON_ID_SUFFIX}`, JSON.stringify({
+                score, 
+                total: totalQuestions, 
+                date: new Date().toISOString()
+            }));
+        } catch (e) {
+            console.error("Error saving quiz score to localStorage:", e);
+        }
+    }
+
+    // === Initialization ===
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set page title and current year
+        document.title = LESSON_TITLE;
+        const currentYearSpan = document.getElementById('current-year-footer');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Setup progress buttons
+        const markCompletedButton = document.getElementById('markCompleted');
+        const markNotCompletedButton = document.getElementById('markNotCompleted');
+        const lessonChoiceMenuLink = document.getElementById('lessonChoiceMenuLink');
+
+        if (markCompletedButton) {
+            markCompletedButton.addEventListener('click', markLessonAsCompleted);
+        }
+        if (markNotCompletedButton) {
+            markNotCompletedButton.addEventListener('click', markLessonAsNotCompleted);
+        }
+        if (lessonChoiceMenuLink) {
+            lessonChoiceMenuLink.href = LESSON_CHOICE_MENU_URL;
+        }
+
+        // Setup quiz
+        const quizSubmitButton = document.getElementById('submit-quiz');
+        if (quizSubmitButton) {
+            quizSubmitButton.addEventListener('click', function() {
+                let score = 0;
+                const quizForm = document.getElementById('quizForm');
+                const totalQuestions = Object.keys(QUIZ_ANSWERS).length;
+                
+                for (const questionKey in QUIZ_ANSWERS) {
+                    const userAnswer = quizForm.elements[questionKey] ? quizForm.elements[questionKey].value : null;
+                    if (userAnswer === QUIZ_ANSWERS[questionKey]) {
+                        score++;
+                    }
+                }
+                
+                const resultsEl = document.getElementById('quiz-results');
+                resultsEl.textContent = `הציון שלך הוא: ${score} מתוך ${totalQuestions}.`;
+                
+                if (score === totalQuestions) {
+                    resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-green-100 text-green-700';
+                } else if (score > 0) {
+                    resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-yellow-100 text-yellow-700';
+                } else {
+                    resultsEl.className = 'mt-3 p-3 rounded-md text-sm bg-red-100 text-red-700';
+                }
+                
+                resultsEl.classList.remove('hidden');
+                recordQuizScore(score, totalQuestions);
+                showNotification(`הבוחן הוגש! ציון: ${score}/${totalQuestions}`, 'info');
+            });
+        }
+
+        updateButtonVisibility();
+        
+        // Initialize MathJax
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise().catch((err) => console.error('MathJax initialization error:', err));
+        }
+    });
+</script>
+
+</body>
+</html>
+
+

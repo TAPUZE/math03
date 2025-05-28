@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <            <main id="lessonMainContent" class="md:w-2/3 lg:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-lg min-h-[400px]">
+                <div class="text-center text-gray-500 py-10">
+                    <p class="text-xl">בחר שיעור מהרשימה בצד כדי לראות את פרטיו.</p>
+                    <svg class="mx-auto mt-4 w-16 h-16 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.253v11.494m0 0A7.5 7.5 0 0019.5 12h0A7.5 7.5 0 0012 21.747m0 0A7.5 7.5 0 014.5 12h0A7.5 7.5 0 0112 21.747M12 6.253V4.853m0 0A2.25 2.25 0 1012 9.353m0-4.5A2.25 2.25 0 0012 9.353" />
+                    </svg>
+                </div>
+            </main>
+
+            <!-- Mobile lesson list (hidden on desktop) -->
+            <div id="mobileLessonList" class="md:hidden">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">בחר שיעור:</h2>
+                <div id="mobileLessonsContainer" class="space-y-3">
+                    <!-- Mobile lessons will be populated here by JavaScript -->
+                </div>
+            </div>לון 35381 - רשימת שיעורים | פלטפורמת למידה במתמטיקה</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Basic MathJax Configuration
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']], // For inline math
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // For display math (centered on new line)
+          },
+          svg: {
+            fontCache: 'global' // Uses a global font cache for faster rendering
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+        }
+        .sidebar-item.active {
+            background-color: #DBEAFE; /* bg-blue-100 */
+            color: #1D4ED8; /* text-blue-700 */
+            font-weight: 600;
+        }
+        .sidebar-item:hover {
+            background-color: #EFF6FF; /* bg-blue-50 */
+        }
+        .status-icon {
+            width: 1.1rem; 
+            height: 1.1rem;
+            margin-left: 0.35rem; /* RTL: margin-left instead of margin-right */
+        }
+        .status-icon-completed { color: #16a34a; }
+        .status-icon-started { color: #f59e0b; }
+        .lesson-number-badge-sm {
+            background-color: #60A5FA; /* bg-blue-400 */
+            color: white;
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 600;
+            width: 1.5rem; /* w-6 */
+            height: 1.5rem; /* h-6 */
+            border-radius: 9999px; /* rounded-full */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.5rem; /* ml-2 for RTL */
+        }
+        .subject-visual-icon {
+            padding: 1rem; 
+            border-radius: 0.5rem; /* rounded-lg */
+            background-color: #f0f9ff; /* blue-50 */
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid #DBEAFE; 
+        }        .katex-display { 
+            margin: 0.5em 0 !important;
+        }
+        /* Mobile math rendering improvements */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            /* Remove lesson preview overlay for mobile - direct navigation */
+            .lesson-preview-overlay {
+                display: none;
+            }
+            /* Mobile lesson list styling */
+            .mobile-lesson-list {
+                display: block;
+                margin-top: 1rem;
+            }
+            .mobile-lesson-item {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+                background-color: white;
+                border: 1px solid #e5e7eb;
+                border-radius: 0.5rem;
+                text-decoration: none;
+                color: inherit;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                transition: all 0.2s ease;
+            }
+            .mobile-lesson-item:hover {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-1px);
+            }
+            .mobile-lesson-item .lesson-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #1d4ed8;
+                margin-bottom: 0.5rem;
+            }
+            .mobile-lesson-item .lesson-description {
+                font-size: 0.9rem;
+                color: #6b7280;
+                line-height: 1.4;
+            }
+            /* Hide desktop main content on mobile */
+            #lessonMainContent {
+                display: none;
+            }
+            /* MathJax mobile improvements */
+            .MathJax {
+                font-size: 1em !important;
+            }
+            .MathJax_Display {
+                margin: 0.3em 0 !important;
+            }
+            .subject-visual-icon {
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors">לומדים מתמטיקה לבגרות</a>
+            <div>
+                <a href="index.html" class="text-green-500 hover:text-green-700 hover:underline transition-colors">
+                    חזרה לדף הראשי
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-green-600 text-white py-10 md:py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">שאלון 35381 (802)</h1>
+            <p class="text-lg md:text-xl">בחרו שיעור מהרשימה בצד להתחיל ללמוד.</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <div class="mb-6 text-center md:text-right">
+            <a href="index.html" class="text-green-500 hover:text-green-700 hover:underline transition-colors">
+                &larr; חזרה לדף הראשי
+            </a>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/3 lg:w-1/4 bg-white p-4 rounded-lg shadow-md h-fit sticky top-24">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">רשימת שיעורים:</h3>
+                <nav id="lessonsSidebarNav" class="space-y-1">
+                    </nav>
+            </aside>
+
+            <main id="lessonMainContent" class="md:w-2/3 lg:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-lg min-h-[400px]">
+                <div class="text-center text-gray-500 py-10">
+                    <p class="text-xl">בחר שיעור מהרשימה בצד כדי לראות את פרטיו.</p>
+                    <svg class="mx-auto mt-4 w-16 h-16 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.253v11.494m0 0A7.5 7.5 0 0019.5 12h0A7.5 7.5 0 0012 21.747m0 0A7.5 7.5 0 014.5 12h0A7.5 7.5 0 0112 21.747M12 6.253V4.853m0 0A2.25 2.25 0 1012 9.353m0-4.5A2.25 2.25 0 0012 9.353" />
+                    </svg>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="text-center text-gray-600 mt-12 py-6 border-t border-gray-200 bg-gray-50">
+        <p>&copy; <span id="current-year"></span> פלטפורמת למידה במתמטיקה. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        const lessonsData = [
+            { id: "35381_functions_parabola_investigation", title: "חקירת פונקציה ריבועית (פרבולה)", description: "המשך חקירת פרבולה: קודקוד, ציר סימטריה, נקודות חיתוך עם הצירים, תחומי עלייה וירידה, חיוביות ושליליות.", link: "lesson_35381_functions_parabola_investigation.html", visual: "y=ax^2+bx+c" },
+            { id: "35381_sequences_arithmetic_sum", title: "סדרות חשבוניות (המשך) - סכום", description: "חישוב סכום n האיברים הראשונים של סדרה חשבונית באמצעות הנוסחאות: $S_n = \\frac{n}{2}(2a_1+(n-1)d)$ ו- $S_n = \\frac{n}{2}(a_1+a_n)$.", link: "lesson_35381_sequences_arithmetic_sum.html", visual: "S_n = \\frac{n}{2}(a_1+a_n)" },
+            { id: "35381_growth_decay", title: "גדילה ודעיכה", description: "חישוב כמות התחלתית, כמות סופית, אחוז שינוי ומשך זמן באמצעות הנוסחה $M_t = M_0 \\cdot q^t$.", link: "lesson_35381_growth_decay.html", visual: "M_t = M_0 \\cdot q^t" },
+            { id: "35381_statistics_dispersion", title: "סטטיסטיקה (המשך) - מדדי פיזור", description: "חישוב סטיית תקן מתוך רשימת נתונים או טבלת שכיחויות, הבנת משמעות הפיזור.", link: "lesson_35381_statistics_dispersion.html", visual: "S = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{N}}" },
+            { id: "35381_probability_tree_conditional", title: "הסתברות (המשך) - דיאגרמת עץ והסתברות מותנית", description: "בניית דיאגרמת עץ לניסוי רב-שלבי, חישוב הסתברויות מורכבות, והבנת הסתברות מותנית בסיסית.", link: "lesson_35381_probability_tree_conditional.html", visual: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}" },
+            { id: "35381_normal_distribution", title: "התפלגות נורמלית", description: "הבנת מושג ההתפלגות הנורמלית, שימוש בגרף הפעמון ובאחוזים סטנדרטיים, מציאת ציון תקן Z.", link: "lesson_35381_normal_distribution.html", visual: "Z = \\frac{X-\\mu}{\\sigma}" },
+            { id: "35381_trigonometry_plane", title: "טריגונומטריה במישור (המשך)", description: "שימוש במשפט הסינוסים והקוסינוסים לפתרון משולשים כלשהם, וחישוב שטח משולש על פי שתי צלעות והזווית ביניהן.", link: "lesson_35381_trigonometry_plane.html", visual: "\\frac{a}{\\sin\\alpha} = 2R" }
+        ];        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            const sidebarNav = document.getElementById('lessonsSidebarNav');
+            const mobileLessonsContainer = document.getElementById('mobileLessonsContainer');
+            
+            // Populate desktop sidebar
+            lessonsData.forEach((lesson, index) => {
+                const listItem = document.createElement('a');
+                listItem.href = "#"; 
+                listItem.className = 'sidebar-item flex items-center p-2 rounded-md text-gray-700 hover:bg-blue-50 transition-colors duration-150';
+                listItem.dataset.lessonIndex = index;
+
+                const numberBadge = document.createElement('span');
+                numberBadge.className = 'lesson-number-badge-sm';
+                numberBadge.textContent = index + 1;
+
+                const statusIconEl = document.createElement('span');
+                statusIconEl.className = 'status-icon';
+                updateStatusIcon(lesson.id, statusIconEl); 
+
+                const titleText = document.createTextNode(lesson.title);
+                
+                listItem.appendChild(numberBadge);
+                listItem.appendChild(statusIconEl);
+                listItem.appendChild(titleText);
+
+                listItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    displayLessonDetails(lesson, index + 1);
+                    document.querySelectorAll('#lessonsSidebarNav .sidebar-item').forEach(item => item.classList.remove('active'));
+                    listItem.classList.add('active');
+                });
+                sidebarNav.appendChild(listItem);
+            });
+
+            // Populate mobile lesson list
+            lessonsData.forEach((lesson, index) => {
+                const mobileItem = document.createElement('a');
+                mobileItem.href = lesson.link; // Direct navigation on mobile
+                mobileItem.className = 'mobile-lesson-item';
+                
+                const statusIconHTML = getStatusIconHTML(lesson.id);
+                
+                mobileItem.innerHTML = `
+                    <div class="flex items-center mb-2">
+                        <span class="lesson-number-badge-sm mr-3">${index + 1}</span>
+                        ${statusIconHTML}
+                        <div class="lesson-title">${lesson.title}</div>
+                    </div>
+                    <div class="lesson-description">${lesson.description}</div>
+                `;
+                
+                mobileLessonsContainer.appendChild(mobileItem);
+            });
+
+            if (lessonsData.length > 0) {
+                displayLessonDetails(lessonsData[0], 1);
+                const firstSidebarItem = sidebarNav.querySelector('.sidebar-item');
+                if (firstSidebarItem) {
+                    firstSidebarItem.classList.add('active');
+                }
+            }
+        });
+
+        function updateStatusIcon(lessonId, iconElement) {
+            try {
+                const completedKey = `lesson_completed_${lessonId}`;
+                const quizScoreKey = `lesson_quiz_score_${lessonId}`;
+                const isCompleted = localStorage.getItem(completedKey) === 'true';
+                const hasQuizScore = localStorage.getItem(quizScoreKey) !== null;
+
+                if (isCompleted) {
+                    iconElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="status-icon-completed"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`;
+                } else if (hasQuizScore) {
+                    iconElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="status-icon-started"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.75 9.25a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd" /></svg>`;
+                } else {
+                    iconElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-300"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.25 7.25a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5h-1.5zM8 11a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5h-2.5A.75.75 0 018 11z" clip-rule="evenodd" /></svg>`;
+                }
+            } catch (e) {
+                console.error("Error accessing localStorage for lesson " + lessonId, e);
+                iconElement.innerHTML = ''; 
+            }
+        }
+
+        function displayLessonDetails(lesson, lessonNumber) {
+            const mainContent = document.getElementById('lessonMainContent');
+            const statusIconHTML = getStatusIconHTML(lesson.id); 
+
+            mainContent.innerHTML = `
+                <div class="flex items-start mb-4">
+                    <span class="lesson-number-badge-sm text-lg ml-3">${lessonNumber}</span> <div class="flex-1">
+                        <div class="flex items-center">
+                             ${statusIconHTML} <h2 class="text-3xl font-bold text-green-700">${lesson.title}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center my-6">
+                    <span class="subject-visual-icon" dir="ltr">\\[${lesson.visual}\\]</span>
+                </div>
+                <p class="text-gray-700 text-lg leading-relaxed mb-6">${lesson.description}</p>
+                <a href="${lesson.link}" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-md transition duration-150 ease-in-out text-lg shadow-md hover:shadow-lg">
+                    מעבר לשיעור &larr; </a>
+            `;
+            
+            // עיבוד MathJax עבור האלמנטים שנוספו דינמית
+            if (window.MathJax && MathJax.typeset) {
+                console.log("MathJax: Rendering dynamically added content in lessonMainContent");
+                MathJax.typeset([mainContent]);
+            } else {
+                 console.error("MathJax: typeset is not defined when trying to render dynamic content.");
+            }
+        }
+        
+        function getStatusIconHTML(lessonId) {
+            let iconHTML = `<span class="status-icon">`; 
+             try {
+                const completedKey = `lesson_completed_${lessonId}`;
+                const quizScoreKey = `lesson_quiz_score_${lessonId}`;
+                const isCompleted = localStorage.getItem(completedKey) === 'true';
+                const hasQuizScore = localStorage.getItem(quizScoreKey) !== null;
+
+                if (isCompleted) {
+                    iconHTML += `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="status-icon-completed"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>`;
+                } else if (hasQuizScore) {
+                    iconHTML += `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="status-icon-started"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.75 9.25a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd" /></svg>`;
+                } else {
+                     iconHTML += `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-300"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.25 7.25a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5h-1.5zM8 11a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5h-2.5A.75.75 0 018 11z" clip-rule="evenodd" /></svg>`;
+                }
+            } catch (e) { /* Keep default empty icon on error */ }
+            iconHTML += `</span>`;
+            return iconHTML;
+        }
+
+    </script>
+</body>
+</html>
