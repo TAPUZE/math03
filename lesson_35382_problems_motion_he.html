@@ -2,11 +2,9 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view            <div class="formula-box-block">\[ \text{Distance} = \text{Speed} \times \text{Time} \]</div>ort" content="width=device-width, initial-scale=1.0">
     <title>בעיות תנועה | שאלון 35382 | פלטפורמת למידה במתמטיקה</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Replace KaTeX with MathJax
+    <script src="https://cdn.tailwindcss.com"></script>    <script>
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -101,11 +99,11 @@
         <h2 id="learn-heading" class="text-2xl font-semibold text-purple-600 mb-4 border-b-2 border-purple-200 pb-2">לומדים: יסודות בפתרון בעיות תנועה 🚗🚲</h2>
         <div class="space-y-4 text-gray-700 leading-relaxed">
             <p>בעיות תנועה עוסקות בגופים הנעים במהירויות שונות, עוברים מרחקים מסוימים בזמנים נתונים. הנוסחה הבסיסית המקשרת בין שלושת הגדלים הללו היא:</p>
-            <div class="formula-box-block"> \text{Distance} = \text{Speed} \times \text{Time} </div>
+            <div class="formula-box-block">\[\text{Distance} = \text{Speed} \times \text{Time} \]</div>
             <p>או בסימנים מקובלים:</p>
-            <div class="formula-box-block" dir="ltr"> s = v \cdot t </div>
+            <div class="formula-box-block" dir="ltr">\[s = v \cdot t \]</div>
             <p>מנוסחה זו ניתן לחלץ גם את המהירות והזמן:</p>
-            <div class="formula-box-block" dir="ltr"> v = \frac{s}{t} \quad ; \quad t = \frac{s}{v} </div>
+            <div class="formula-box-block" dir="ltr">\[v = \frac{s}{t} \quad ; \quad t = \frac{s}{v} \]</div>
             <p>חשוב לוודא שהיחידות תואמות לאורך כל החישוב (למשל, אם המהירות בקמ"ש, הזמן צריך להיות בשעות והדרך בקילומטרים).</p>
             
             <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-800">1. סוגי בעיות תנועה נפוצים</h3>
@@ -157,11 +155,11 @@
                     </tbody>
                 </table>
                 <p>3. כאשר המכוניות נפגשות, סכום הדרכים שהן עברו שווה למרחק הכולל ביניהן (400 ק"מ):</p>
-                <div class="formula-box-block" dir="ltr"> 90t + 110t = 400 </div>
+                <div class="formula-box-block" dir="ltr">\[90t + 110t = 400 \]</div>
                 <p>4. נפתור את המשוואה:</p>
-                <div class="formula-box-block" dir="ltr"> 200t = 400 </div>
-                <div class="formula-box-block" dir="ltr"> t = \frac{400}{200} </div>
-                <div class="formula-box-block" dir="ltr"> t = 2 </div>
+                <div class="formula-box-block" dir="ltr">\[200t = 400 \]</div>
+                <div class="formula-box-block" dir="ltr">\[t = \frac{400}{200} \]</div>
+                <div class="formula-box-block" dir="ltr">\[t = 2 \]</div>
                 <p><strong>תשובה:</strong> המכוניות ייפגשו כעבור 2 שעות.</p>
             </div>
         </div>
@@ -195,11 +193,11 @@
                         </tbody>
                     </table>
                     <p>6. משוואת הדרכים:</p>
-                    <div class="formula-box-block" dir="ltr"> 5v = 3(v+30) </div>
+                    <div class="formula-box-block" dir="ltr">\[5v = 3(v+30) \]</div>
                     <p>7. נפתור:</p>
-                    <div class="formula-box-block" dir="ltr"> 5v = 3v + 90 </div>
-                    <div class="formula-box-block" dir="ltr"> 2v = 90 </div>
-                    <div class="formula-box-block" dir="ltr"> v = 45 </div>
+                    <div class="formula-box-block" dir="ltr">\[5v = 3v + 90 \]</div>
+                    <div class="formula-box-block" dir="ltr">\[2v = 90 \]</div>
+                    <div class="formula-box-block" dir="ltr">\[v = 45 \]</div>
                     <p><strong>תשובה:</strong> מהירות רוכב האופניים הייתה 45 קמ"ש.</p>
                 </div>
             </div>
@@ -254,10 +252,15 @@ const NEXT_LESSON_URL = 'lesson_35382_problems_work_rate_he.html';
 // Quiz answers
 const QUIZ_ANSWERS = { q1: 'b', q2: 'b' }; 
 
-document.addEventListener("DOMContentLoaded", function() {
-    if (typeof MathJax !== 'undefined') {
-        MathJax.typesetPromise();
+// --- MathJax Rendering ---
+function renderMathInElement(element) {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([element]).catch((err) => console.log('MathJax error:', err));
     }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
     checkLessonStatus();
 });
 

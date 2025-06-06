@@ -235,7 +235,15 @@ const BREADCRUMB_MAIN_TOPIC_TEXT = 'חשבון דיפרנציאלי ואינטג
 const QUIZ_ANSWERS = { q1: 'b', q2: 'a' }; 
 
 document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body);
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\[", right: "\\]", display: true}
+        ],
+        throwOnError: false
+    });
     document.getElementById('lesson-title').textContent = LESSON_TITLE + " √";
     document.title = LESSON_TITLE + " | שאלון 35382 | פלטפורמת למידה במתמטיקה";
     

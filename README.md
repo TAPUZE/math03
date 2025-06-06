@@ -1,5 +1,12 @@
 # Math Learning Platform - Hebrew 🧮
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Available-brightgreen)](https://tapuze.github.io/math03/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Hebrew](https://img.shields.io/badge/Language-Hebrew-blue.svg)](https://en.wikipedia.org/wiki/Hebrew_language)
+[![Mobile Optimized](https://img.shields.io/badge/Mobile-Optimized-purple.svg)](https://tapuze.github.io/math03/)
+
+> **🎯 The Complete Hebrew Mathematics Learning Platform for Bagrut Exams**
+
 A comprehensive Hebrew mathematics learning platform designed for Israeli high school students preparing for the Bagrut (מתמטיקה לבגרות) exams.
 
 ## 📚 Features
@@ -63,9 +70,13 @@ A comprehensive Hebrew mathematics learning platform designed for Israeli high s
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/math-learning-platform.git
-   cd math-learning-platform
+   git clone https://github.com/TAPUZE/math03.git
+   cd math03
    ```
+
+2. **Or access directly online:**
+   - Visit: https://tapuze.github.io/math03/
+   - No installation required - works directly in your browser
 
 2. **Open in a web browser:**
    - Simply open `index.html` in your preferred web browser
